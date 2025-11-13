@@ -1,0 +1,121 @@
+.container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+/* --- Form Groups & Inputs --- */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-group input::placeholder {
+    color: #bbb;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff; /* สีฟ้าตอน focus */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* --- Password Side-by-Side --- */
+.password-wrapper {
+    display: flex;
+    gap: 2rem; /* Shorthand for column-gap */
+}
+
+.password-wrapper .form-group {
+    flex: 1; /* Make them share space equally */
+    margin-bottom: 0; /* Remove double margin */
+}
+
+/* We need to add margin back to the wrapper */
+.password-wrapper {
+    margin-bottom: 1.25rem;
+}
+
+
+/* --- Button --- */
+button[type="submit"] {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* --- Sign in Link --- */
+.signin-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.signin-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signin-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- Validation Styles --- */
+.error-message {
+    color: #dc3545; /* สีแดงสำหรับ error */
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: none; /* ซ่อนไว้ก่อน */
+}
+
+/* เมื่อ .form-group มี class 'error' */
+.form-group.error .error-message {
+    display: block; /* แสดงข้อความ error */
+}
+
+.form-group.error input {
+    border-color: #dc3545; /* เปลี่ยนขอบเป็นสีแดง */
+}
+
+/* (Optional) สไตล์สำหรับ Success */
+.form-group.success input {
+    border-color: #28a745; /* เปลี่ยนขอบเป็นสีเขียว */
+}
