@@ -6,10 +6,22 @@ export const categoryRoute = new Hono();
 
 // GET /categories → ดึง categories ทั้งหมด
 categoryRoute.get("/", async (c) => {
-    const { data, error } = await supabaseClient.from("categories").select("*");
+  const limitParam = c.req.query("limit");
 
-    if (error) return c.json({ error: error.message }, 500);
-    return c.json(data);
+  let query = supabaseClient.from("categories").select("*");
+
+  if (limitParam) {
+    const limit = parseInt(limitParam, 10);
+    if (isNaN(limit) || limit <= 0) {
+      return c.json({ error: "Invalid limit parameter" }, 400);
+    }
+    query = query.limit(limit);
+  }
+
+  const { data, error } = await query;
+
+  if (error) return c.json({ error: error.message }, 500);
+  return c.json(data);
 });
 
 // POST /categories → เพิ่ม category ใหม่

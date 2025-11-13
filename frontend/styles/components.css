@@ -21,3 +21,9 @@
 .btn-ghost:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
+.btn-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

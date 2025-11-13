@@ -1,157 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/components.css">
-    <link rel="stylesheet" href="./styles/footer.css">
-</head>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <nav class="header-nav">
-            <button class="header-menu-button btn btn-ghost" onclick="toggleNav()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-menu-icon lucide-menu">
-                    <path d="M4 5h16" />
-                    <path d="M4 12h16" />
-                    <path d="M4 19h16" />
-                </svg>
+      <nav class="header-nav">
+        <button class="header-menu-button btn btn-ghost" onclick="toggleNav()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu-icon lucide-menu"
+          >
+            <path d="M4 5h16" />
+            <path d="M4 12h16" />
+            <path d="M4 19h16" />
+          </svg>
+        </button>
+        <span class="header-title"> ACS SHOP </span>
+        <div class="header-nav-right">
+          <div style="position: relative">
+            <button class="header-login-button btn btn-ghost" id="account-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-user-round-icon lucide-user-round"
+              >
+                <circle cx="12" cy="8" r="5" />
+                <path d="M20 21a8 8 0 0 0-16 0" />
+              </svg>
             </button>
-            <span class="header-title">
-                ACS SHOP
-            </span>
-            <div class="header-nav-right">
-                <button class="header-login-button btn btn-ghost">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-user-round-icon lucide-user-round">
-                        <circle cx="12" cy="8" r="5" />
-                        <path d="M20 21a8 8 0 0 0-16 0" />
-                    </svg>
-                </button>
-                <a href="./cart.html" class="header-login-button btn btn-ghost">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
-                        <circle cx="8" cy="21" r="1" />
-                        <circle cx="19" cy="21" r="1" />
-                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-                    </svg>
-                </a>
+            <div id="account-dropdown" class="account-content">
+              <div style="padding: 8px 0px; border-bottom: 1px solid lightgray">
+                <a
+                  href="#"
+                  style="color: black; text-decoration: none; font-size: 14px"
+                  >Account settings</a
+                >
+              </div>
+              <div style="padding: 8px 0px; border-bottom: 1px solid lightgray">
+                <a
+                  href="#"
+                  style="color: black; text-decoration: none; font-size: 14px"
+                  >Order history</a
+                >
+              </div>
+              <button
+                id="signout-btn"
+                class="btn btn-ghost btn-left"
+                style="font-size: 14px"
+              >
+                Signout
+              </button>
             </div>
-        </nav>
+          </div>
+          <a href="./cart.html" class="btn btn-ghost">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+            >
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path
+                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+              />
+            </svg>
+          </a>
+        </div>
+      </nav>
     </header>
 
     <div class="sidenav-overlay" id="sidenav-overlay">
-        <div id="sidenav-menu" class="sidenav">
-            <a href="#">Home</a>
+      <div id="sidenav-menu" class="sidenav">
+        <a href="#">Home</a>
 
-            <div class="sidenav-group">
-                <div class="sidenav-item">
-                    <a href="#">Shop</a>
-                    <button id="submenu-shop-button" class="btn btn-ghost" onclick="toggleSubmenu()">
-                        <svg id="indicator" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-chevron-right-icon lucide-chevron-right">
-                            <path d="m9 18 6-6-6-6" />
-                        </svg>
-                    </button>
-                </div>
-                <div id="submenu-shop" class="sidenav-submenu">
-                    <a href="#">Category 1</a>
-                    <a href="#">Category 2</a>
-                    <a href="#">Category 3</a>
-                </div>
-            </div>
-
-            <a href="#">Cart</a>
-            <a href="#">Admin</a>
+        <div class="sidenav-group">
+          <div class="sidenav-item">
+            <a href="#">Shop</a>
+            <button
+              id="submenu-shop-button"
+              class="btn btn-ghost"
+              onclick="toggleSubmenu()"
+            >
+              <svg
+                id="indicator"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-right-icon lucide-chevron-right"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+          <div id="submenu-shop" class="sidenav-submenu">
+          </div>
         </div>
+
+        <a href="#">Cart</a>
+        <a href="#" id="admin-link">Admin</a>
+
+
+        <div class="sidenav-group sidenav-menu-extra">
+          <a href="#" id="account-settings-link">Account Settings</a>
+          <a href="#" id="order-history-link">Order History</a>
+          <button
+            id="signout-link-btn"
+            class="btn btn-ghost btn-left"
+            style="font-size: 14px"
+          >
+            Signout
+          </button>
+        </div>
+
+      </div>
     </div>
 
-    <main class="main-content" >
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <h1>Welcome to ACS Shop</h1>
-        <p>Your one-stop shop for all your needs!</p>
-        <button onclick="console.log('awdawd')">Add to Cart</button>
-
+    <main class="main-content">
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <h1>Welcome to ACS Shop</h1>
+      <p>Your one-stop shop for all your needs!</p>
+      <button onclick="console.log('awdawd')">Add to Cart</button>
     </main>
 
     <footer class="footer">
-        <div class="footer-inner">
+      <div class="footer-inner">
+        <!-- Column 1 -->
+        <div class="footer-col">
+          <h2 class="footer-title">ACS SHOP</h2>
 
-            <!-- Column 1 -->
-            <div class="footer-col">
-                <h2 class="footer-title">ACS SHOP</h2>
+          <p class="footer-subtitle">ติดตามเรา</p>
+          <div class="socials">
+            <a
+              href="https://www.facebook.com/p/Applied-Computer-Science-KMUTT-100086247692906/?locale=th_TH"
+              target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-facebook-icon lucide-facebook"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                /></svg
+            ></a>
+            <a href="https://www.instagram.com/dek_warmkid/" target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-instagram-icon lucide-instagram"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg
+            ></a>
+            <a href="#"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-youtube-icon lucide-youtube"
+              >
+                <path
+                  d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                />
+                <path d="m10 15 5-3-5-3z" /></svg
+            ></a>
+          </div>
 
-                <p class="footer-subtitle">ติดตามเรา</p>
-                <div class="socials">
-                    <a href="https://www.facebook.com/p/Applied-Computer-Science-KMUTT-100086247692906/?locale=th_TH" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook-icon lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                    <a href="https://www.instagram.com/dek_warmkid/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube-icon lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a>
-
-                </div>
-
-                <p class="footer-subtitle">ติดต่อเรา</p>
-                <p class="footer-text">chanatip.chooc@kmutt.ac.th</p>
-            </div>
-
-            <!-- Column 2 -->
-            <div class="footer-col">
-                <p class="footer-subtitle">เกี่ยวกับ</p>
-                <a href="#">เกี่ยวกับเรา</a>
-                <a href="#">ข้อตกลงและเงื่อนไข</a>
-                <a href="#">นโยบายความเป็นส่วนตัว</a>
-            </div>
-
-            <!-- Column 3 -->
-            <div class="footer-col">
-                <p class="footer-subtitle">คำสั่งซื้อ</p>
-                <a href="#">ติดตามคำสั่งซื้อของฉัน</a>
-            </div>
-
-            <!-- Column 4 -->
-            <div class="footer-col">
-                <p class="footer-subtitle">ต้องการความช่วยเหลือ</p>
-                <a href="#">คำถามที่พบบ่อย</a>
-                <a href="#">การคืนสินค้า</a>
-                <a href="#">ติดต่อเรา</a>
-                <a href="#">ตารางแนะนำขนาด</a>
-            </div>
-
+          <p class="footer-subtitle">ติดต่อเรา</p>
+          <p class="footer-text">chanatip.chooc@kmutt.ac.th</p>
         </div>
 
-        <hr class="footer-line">
-
-        <div class="footer-bottom">
-            © ACS SHOP, all rights reserved
+        <!-- Column 2 -->
+        <div class="footer-col">
+          <p class="footer-subtitle">เกี่ยวกับ</p>
+          <a href="#">เกี่ยวกับเรา</a>
+          <a href="#">ข้อตกลงและเงื่อนไข</a>
+          <a href="#">นโยบายความเป็นส่วนตัว</a>
         </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+          <p class="footer-subtitle">คำสั่งซื้อ</p>
+          <a href="#">ติดตามคำสั่งซื้อของฉัน</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-col">
+          <p class="footer-subtitle">ต้องการความช่วยเหลือ</p>
+          <a href="#">คำถามที่พบบ่อย</a>
+          <a href="#">การคืนสินค้า</a>
+          <a href="#">ติดต่อเรา</a>
+          <a href="#">ตารางแนะนำขนาด</a>
+        </div>
+      </div>
+
+      <hr class="footer-line" />
+
+      <div class="footer-bottom">© ACS SHOP, all rights reserved</div>
     </footer>
 
-
-
     <script src="./scripts/menu.js"></script>
-</body>
-
+  </body>
 </html>
