@@ -18,6 +18,7 @@ h2 {
 /* --- Form Groups & Inputs --- */
 .form-group {
     margin-bottom: 1.25rem;
+    width: 100%;
 }
 
 .form-group label {
@@ -28,11 +29,14 @@ h2 {
 }
 
 .form-group input {
-    width: 95%;
+    width: 100%;
+    box-sizing: border-box;
     padding: 0.75rem;
     border: 1px solid #ddd;
     font-size: 1rem;
     color: #333;
+    display: block;
+    max-width: 100%;
 }
 
 .form-group input::placeholder {
@@ -47,7 +51,7 @@ h2 {
 
 /* --- Password Side-by-Side --- */
 .password-wrapper {
-    width: 97%;
+    width: 100%;
     display: flex;
     gap: 2rem; /* Shorthand for column-gap */
 }
@@ -123,4 +127,19 @@ button[type="submit"]:hover {
 /* (Optional) สไตล์สำหรับ Success */
 .form-group.success input {
     border-color: #28a745; /* เปลี่ยนขอบเป็นสีเขียว */
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+        width: 90%;
+        max-width: none;
+    }
+    .password-wrapper {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    button[type="submit"] {
+        width: 100%;
+    }
 }

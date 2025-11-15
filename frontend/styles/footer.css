@@ -6,6 +6,12 @@
   max-width: 100%;
 }
 
+/* Ensure long words/URLs inside the footer wrap instead of overflowing */
+.footer, .footer * {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .footer-inner {
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));

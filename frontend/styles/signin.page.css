@@ -18,7 +18,7 @@ h2 {
 
 .form-group {
     margin-bottom: 1.25rem;
-    margin: auto;
+    width: 100%;
 }
 
 .form-group label {
@@ -29,11 +29,14 @@ h2 {
 }
 
 .form-group input {
-    width: 95%;
+    width: 100%;
+    box-sizing: border-box; /* include padding in width */
     padding: 0.75rem;
     border: 1px solid #ddd;
     font-size: 1rem;
     color: #333;
+    display: block;
+    max-width: 100%;
 }
 
 
@@ -126,4 +129,17 @@ button[type="submit"]:hover {
 
 .forgot-password a:hover {
     text-decoration: underline;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    width: 75%;
+    max-width: none;
+  }
+    /* Make submit button span full width on small screens */
+    button[type="submit"] {
+        width: 100%;
+    }
 }
