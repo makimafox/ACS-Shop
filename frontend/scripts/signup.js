@@ -105,7 +105,9 @@ async function signUp(e) {
     const payload = {
         name: `${values.firstname} ${values.lastname}`,
         email: values.email,
-        password: values.password
+        password: values.password,
+        phone: values.phone,
+        address: values.address
     };
 
     console.log(payload)

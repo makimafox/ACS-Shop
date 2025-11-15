@@ -42,8 +42,8 @@ userRoute.post("/signup", async (c) => {
   const hashedPassword = await bcrypt.hash(body.password, 10);
   try {
     const res = await pool.query(
-      `INSERT INTO users (name, email, password_hash) VALUES ($1,$2,$3) RETURNING *`,
-      [body.name, body.email, hashedPassword]
+      `INSERT INTO users (name, email, password_hash, phone, address) VALUES ($1,$2,$3,$4,$5) RETURNING *`,
+      [body.name, body.email, hashedPassword, body.phone, body.address]
     );
     return c.json(res.rows[0], 201);
   } catch (err: any) {
