@@ -88,24 +88,48 @@
 .container {
     display: flex;
     position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
 }
 
 .image {
     display: block;
     width: 400px;
     height: auto;
-    margin-top: 30px;
 }
 
 .overlay {
     position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: #bebebe;
+    opacity: 0;
 }
 
 .ig {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    top: 47%;
+    left: 45%;
     
 }
+
+.container:hover .overlay {
+    opacity: 0.5;
+    transition: 0.5s ease;
+}
+
+.acs-style {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 100px;
+}
+
+
+
 
 
