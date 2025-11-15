@@ -129,7 +129,21 @@
     margin-bottom: 100px;
 }
 
-
+@media (max-width:600px){
+    .acs-style {
+        max-width: 600px;
+        flex-direction: column;
+    }
+    .toppage img {
+        width: 100%;
+        height: auto;
+        border-radius: 0px;
+        margin-top: 0px;
+    }
+    .toppage {
+        margin-top: 0px;
+    }
+}
 
 
 
