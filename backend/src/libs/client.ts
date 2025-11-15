@@ -1,11 +1,3 @@
-import { createClient } from "@supabase/supabase-js";
-
-import "dotenv/config";
-
-const supabaseUrl = process.env.SUPABASE_URL!;
-const supabaseKey = process.env.SUPABASE_ANON_KEY!;
-
-const supabaseClient = createClient(supabaseUrl, supabaseKey);
-
-
-export { supabaseClient };
+// Supabase client removed — use pg Pool (libs/db.ts) instead.
+// This module remains to avoid import errors; DO NOT use it. Import { pool } from '../libs/db' instead.
+throw new Error('Supabase client is no longer supported in this project. Use libs/db.ts (pg Pool) instead.');

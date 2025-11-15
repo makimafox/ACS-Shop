@@ -1,50 +1,59 @@
 import { Hono } from "hono";
-import { supabaseClient } from "../libs/client";
+import { pool } from "../libs/db";
 
 
 export const categoryRoute = new Hono();
 
 // GET /categories → ดึง categories ทั้งหมด
-categoryRoute.get("/", async (c) => {
-  const limitParam = c.req.query("limit");
+categoryRoute.get('/', async (c) => {
+  // support optional pagination: ?limit=10&offset=0
+  const limitParam = c.req.query('limit');
+  const offsetParam = c.req.query('offset');
+  try {
+    const params: any[] = [];
+    let sql = 'SELECT * FROM categories';
 
-  let query = supabaseClient.from("categories").select("*");
-
-  if (limitParam) {
-    const limit = parseInt(limitParam, 10);
-    if (isNaN(limit) || limit <= 0) {
-      return c.json({ error: "Invalid limit parameter" }, 400);
+    if (limitParam) {
+      const limit = parseInt(limitParam, 10);
+      if (isNaN(limit) || limit <= 0) return c.json({ error: 'Invalid limit parameter' }, 400);
+      params.push(limit);
+      sql += ` LIMIT $${params.length}`;
     }
-    query = query.limit(limit);
+
+    if (offsetParam) {
+      const offset = parseInt(offsetParam, 10);
+      if (isNaN(offset) || offset < 0) return c.json({ error: 'Invalid offset parameter' }, 400);
+      params.push(offset);
+      sql += ` OFFSET $${params.length}`;
+    }
+
+    const res = await pool.query(sql, params);
+    return c.json(res.rows);
+  } catch (err: any) {
+    console.error('DB error (categories GET):', err);
+    return c.json({ error: err.message || 'DB error' }, 500);
   }
-
-  const { data, error } = await query;
-
-  if (error) return c.json({ error: error.message }, 500);
-  return c.json(data);
 });
 
 // POST /categories → เพิ่ม category ใหม่
 categoryRoute.post("/", async (c) => {
   const body = await c.req.json();
-
-  const {data, error} = await supabaseClient.from('categories').insert({
-    name: body.name,
-    description: body.description
-  }).select();
-
-  if (error) return c.json({ error: error.message }, 500);
-  return c.json({ message: "Category created", category: body }, 201);
+  try {
+    const res = await pool.query('INSERT INTO categories (name, description) VALUES ($1,$2) RETURNING *', [body.name, body.description]);
+    return c.json({ message: 'Category created', category: res.rows[0] }, 201);
+  } catch (err: any) {
+    console.error('DB error (category create):', err);
+    return c.json({ error: err.message || 'DB error' }, 500);
+  }
 });
 
 categoryRoute.post("/update", async (c) => {
   const body = await c.req.json();
-
-  const {data, error} = await supabaseClient.from('categories').update({
-    name: body.name,
-    description: body.description
-  }).eq('id', body.id).select();
-
-  if (error) return c.json({ error: error.message }, 500);
-  return c.json({ message: "Category updated", category: body }, 200);
+  try {
+    const res = await pool.query('UPDATE categories SET name=$1, description=$2 WHERE category_id=$3 RETURNING *', [body.name, body.description, body.id]);
+    return c.json({ message: 'Category updated', category: res.rows[0] }, 200);
+  } catch (err: any) {
+    console.error('DB error (category update):', err);
+    return c.json({ error: err.message || 'DB error' }, 500);
+  }
 });

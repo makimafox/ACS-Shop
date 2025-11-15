@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="info"></div>
+    <div id="card"></div>
+
+    <script defer>
+      console.log("Test file loaded");
+
+      const params = new URLSearchParams(window.location.search);
+
+      const ref = params.get("category") || "";
+
+      console.log("Category:", ref);
+
+      (async () => {
+        try {
+          const res = await fetch(
+            "http://localhost:8000/products?category=" + ref,
+            {
+              headers: { Accept: "application/json" },
+              credentials: "same-origin",
+            }
+          );
+
+          if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+
+          const data = await res.json();
+          console.log("Products data:", data);
+
+          // expose data for later use (or render as needed)
+          const cardContainer = document.getElementById("card");
+          data.forEach((product) => {
+            const productCard = document.createElement("div");
+            productCard.className = "product-card";
+            productCard.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>Price: $${product.price}</p>
+            <p>Category: ${product.categories.name}</p>
+          `;
+            cardContainer.appendChild(productCard);
+          });
+        } catch (err) {
+          console.error("Error fetching products:", err);
+        }
+      })();
+
+      document.getElementById("info").innerText = `Category: ${ref}`;
+    </script>
+  </body>
+</html>
