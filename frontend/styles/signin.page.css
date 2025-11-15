@@ -3,9 +3,8 @@
     padding: 2.5rem;
     width: 100%;
     max-width: 500px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px auto;
+    
 }
 
 h2 {
@@ -16,8 +15,10 @@ h2 {
 }
 
 /* --- Form Groups & Inputs --- */
+
 .form-group {
     margin-bottom: 1.25rem;
+    margin: auto;
 }
 
 .form-group label {
@@ -35,6 +36,7 @@ h2 {
     color: #333;
 }
 
+
 .form-group input::placeholder {
     color: #bbb;
 }
@@ -45,22 +47,6 @@ h2 {
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
 }
 
-/* --- Password Side-by-Side --- */
-.password-wrapper {
-    width: 97%;
-    display: flex;
-    gap: 2rem; /* Shorthand for column-gap */
-}
-
-.password-wrapper .form-group {
-    flex: 1; /* Make them share space equally */
-    margin-bottom: 0; /* Remove double margin */
-}
-
-/* We need to add margin back to the wrapper */
-.password-wrapper {
-    margin-bottom: 1.25rem;
-}
 
 .form-container {
     display: flex;
@@ -86,20 +72,20 @@ button[type="submit"]:hover {
 }
 
 /* --- Sign in Link --- */
-.signin-link {
+.signup-link {
     text-align: center;
     margin-top: 1.5rem;
     font-size: 0.9rem;
     color: #555;
 }
 
-.signin-link a {
+.signup-link a {
     color: #007bff;
     text-decoration: none;
     font-weight: 500;
 }
 
-.signin-link a:hover {
+.signup-link a:hover {
     text-decoration: underline;
 }
 
@@ -123,4 +109,21 @@ button[type="submit"]:hover {
 /* (Optional) สไตล์สำหรับ Success */
 .form-group.success input {
     border-color: #28a745; /* เปลี่ยนขอบเป็นสีเขียว */
+}
+
+.forgot-password{
+    text-align: right;
+    margin-top: 0.5rem; 
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.forgot-password a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
 }

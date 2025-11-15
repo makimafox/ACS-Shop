@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/components.css" />
     <link rel="stylesheet" href="./styles/footer.css" />
-    <link rel="stylesheet" href="./styles/signup.page.css" />
+    <link rel="stylesheet" href="./styles/signin.page.css" />
   </head>
 
   <body>
@@ -157,58 +157,34 @@
 
     <main class="main-content">
       <div class="container">
-        <form id="signup-form" novalidate>
-            <h2>Sign up</h2>
+        <form id="signin-form" novalidate>
+            <h2>Sign in</h2>
 
-            <div class="form-group">
-                <label for="firstname">Firstname</label>
-                <input type="text" id="firstname" name="firstname">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="form-group">
-                <label for="lastname">Lastname</label>
-                <input type="text" id="lastname" name="lastname">
-                <small class="error-message"></small>
-            </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="example@gmail.com">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address" placeholder="XXXXXXXXXXXX">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone number</label>
-                <input type="tel" id="phone" name="phone" placeholder="000 000 000">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="password-wrapper">
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="••••••••">
-                    <small class="error-message"></small>
+                <div class ="inputblock">
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com">
                 </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••">
-                    <small class="error-message"></small>
-                </div>
+                <small class="error-message"></small>
             </div>
+
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••">
+                <small class="error-message"></small>
+            </div>
+            
+            <p class="forgot-password">
+                <a href="#">Forgot your password ?</a>
+            </p>
 
             <div class="form-container">
-              <button type="submit">Sign up</button>
+              <button type="submit">Sign in</button>
             </div>
-
-            <p class="signin-link">
-                Does have an account ? <a href="#">Sign in</a>
+            <p class="signup-link">
+                Don't have an account ? <a href="#">Sign up</a>
             </p>
 
         </form>

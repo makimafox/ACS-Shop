@@ -9,32 +9,30 @@
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/components.css" />
     <link rel="stylesheet" href="./styles/footer.css" />
-    <link rel="stylesheet" href="./styles/signup.page.css" />
+    <link rel="stylesheet" href="./styles/landingpage.css" />
   </head>
 
   <body>
     <header class="header">
       <nav class="header-nav">
-        <div class="header-menu-button">
-          <button class="btn btn-ghost" onclick="toggleNav()">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-menu-icon lucide-menu"
-            >
-              <path d="M4 5h16" />
-              <path d="M4 12h16" />
-              <path d="M4 19h16" />
-            </svg>
-          </button>
-        </div>
+        <button class="header-menu-button btn btn-ghost" onclick="toggleNav()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu-icon lucide-menu"
+          >
+            <path d="M4 5h16" />
+            <path d="M4 12h16" />
+            <path d="M4 19h16" />
+          </svg>
+        </button>
         <span class="header-title"> ACS SHOP </span>
         <div class="header-nav-right">
           <div style="position: relative">
@@ -156,63 +154,48 @@
     </div>
 
     <main class="main-content">
-      <div class="container">
-        <form id="signup-form" novalidate>
-            <h2>Sign up</h2>
-
-            <div class="form-group">
-                <label for="firstname">Firstname</label>
-                <input type="text" id="firstname" name="firstname">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="form-group">
-                <label for="lastname">Lastname</label>
-                <input type="text" id="lastname" name="lastname">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="example@gmail.com">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address" placeholder="XXXXXXXXXXXX">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone number</label>
-                <input type="tel" id="phone" name="phone" placeholder="000 000 000">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="password-wrapper">
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="••••••••">
-                    <small class="error-message"></small>
+        <div class="toppage"><img src="/frontend/img/firstproduct.PNG" alt="">
+            <div class="shopnow"><a href="#">Shop now</a></div>
+        </div>
+        <div class="content">
+            <div class="content-title">New Arrivals</div>
+            <div class="text-new">
+                <div class="product">
+                    <a href="#">
+                        <p>กางเกงมด Warmkid</p>
+                        <p>320 THB</p>
+                    </a>
                 </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••">
-                    <small class="error-message"></small>
+                <div class="product">
+                    <a href="#">
+                        <p>กางเกงมด Warmkid</p>
+                        <p>320 THB</p>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <p>กางเกงมด Warmkid</p>
+                        <p>320 THB</p>
+                    </a>
+                </div>
+                <div class="product">
+                    <a href="#">
+                        <p>กางเกงมด Warmkid</p>
+                        <p>320 THB</p>
+                    </a>
+                </div>
+            </div>
+            <div class="content-sub">ACS Style</div>
+            <div class="container">
+                <img src="/frontend/img/asc1.PNG" alt="" class="image">
+                <div class="overlay">
+                    <div class="textlink">
+                      <a href="https://www.instagram.com/p/DMAX6s6BlCe/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="><img src="/frontend/img/ig.PNG" alt="" class="ig"></a>
+                    </div>
                 </div>
             </div>
 
-            <div class="form-container">
-              <button type="submit">Sign up</button>
-            </div>
-
-            <p class="signin-link">
-                Does have an account ? <a href="#">Sign in</a>
-            </p>
-
-        </form>
-    </div>
+        </div>
     </main>
 
     <footer class="footer">

@@ -1,0 +1,111 @@
+/* ----------------- */
+.toppage {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.shopnow {
+    position: absolute;
+    bottom: 50px;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.shopnow a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.shopnow:hover {
+    background-color: #333333;
+}
+
+
+.toppage img {
+    width: 1700px;
+    height: 737px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+/* ----- content ----- */
+.content{
+    margin: auto;
+    max-width: 90%;
+}
+
+.content-title{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 47px;
+}
+
+.text-new {
+    display: flex;
+    margin-top: 20px;
+    gap: 35px;
+}
+
+.product {
+    width: 400px;
+    height: 400px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product a {
+    text-decoration: none;
+    color: black;
+    margin-top: 510px;
+    font-size: 20px;
+}
+
+/* acs style */
+
+.content-sub {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 47px;
+    margin-top: 140px;
+}
+
+.container {
+    display: flex;
+    position: relative;
+}
+
+.image {
+    display: block;
+    width: 400px;
+    height: auto;
+    margin-top: 30px;
+}
+
+.overlay {
+    position: absolute;
+}
+
+.ig {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    
+}
+
+

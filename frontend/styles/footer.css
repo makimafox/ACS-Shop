@@ -41,7 +41,7 @@
   color: #dcdcdc;
   margin-bottom: 20px;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 /* Social icons */
@@ -88,3 +88,4 @@
     grid-template-columns: 1fr;
   }
 }
+
