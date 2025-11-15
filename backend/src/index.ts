@@ -6,7 +6,15 @@ import { productsRoute } from './routes/product'
 import { categoryRoute } from './routes/category'
 import { stockRoute } from './routes/stock'
 import { cors } from 'hono/cors'
+import { init } from './helper/init'
+import { pool } from './libs/db'
+import { seed } from './helper/seed'
 
+init(pool).then(() => {
+  console.log('Database initialized')
+}).catch((err:any) => {
+  console.error('Error initializing database:', err)
+})
 
 
 const app = new Hono()
@@ -29,6 +37,14 @@ app.route('/stock', stockRoute)
 
 // test route
 app.get('/', (c) => c.text('Hono + MySQL2 API running!'))
+app.get('/seed', async (c) => {
+  try {
+    await seed();
+    return c.text('Database seeded successfully');
+  } catch (err) {
+    return c.text('Error seeding database: ');
+  }
+})
 
 serve({
   fetch: app.fetch,

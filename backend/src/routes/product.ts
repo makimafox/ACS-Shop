@@ -1,78 +1,93 @@
 import { Hono } from "hono";
-import { supabaseClient } from "../libs/client";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import pool from "../libs/db";
 
 export const productsRoute = new Hono();
 
-// GET /products → ดึง products ทั้งหมด
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const uploadDir = path.join(__dirname, "../../public/uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
 productsRoute.get("/", async (c) => {
-  const name = c.req.query("name") || "";
+  try {
+    const res = await pool.query("SELECT * FROM products");
+    return c.json({ success: true, products: res.rows });
+  } catch (err: any) {
+    console.error("Error fetching products:", err);
+    return c.json({ success: false, message: err.message }, 500);
+  }
+});
 
-  let query = supabaseClient.from("products").select("*");
+productsRoute.post("/", async (c) => {
+  try {
+    const formData = await c.req.formData();
+    const file = formData.get("file") as File | null;
+    const name = formData.get("name") as string;
+    const description = formData.get("description") as string;
+    const price = parseFloat(formData.get("price") as string);
+    const category_id = formData.get("category_id") as string;
+    const stock_quantity = parseInt(formData.get("stock_quantity") as string);
 
-  //   if have query param name, filter by name
-  if (name) {
-    query = query.eq("name", name);
+    if (!file) {
+      return c.json({ success: false, message: "No file uploaded" }, 400);
+    }
+
+    // Save file
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+    const filename = `${Date.now()}-${file.name}`;
+    const filePath = path.join(uploadDir, filename);
+    fs.writeFileSync(filePath, buffer);
+
+    // Insert all product info including image_url
+    const res = await pool.query(
+      `INSERT INTO products (category_id, name, description, price, image_url)
+       VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+      [category_id, name, description, price, filename]
+    );
+
+    return c.json({ success: true, product: res.rows[0] });
+  } catch (err: any) {
+    console.error("Error creating product:", err);
+    return c.json({ success: false, message: err.message }, 500);
+  }
+});
+
+productsRoute.get("/images/:filename", async (c) => {
+  const { filename } = c.req.param();
+  const filePath = path.join(uploadDir, filename);
+
+  if (!fs.existsSync(filePath)) {
+    return c.json({ success: false, message: "File not found" }, 404);
   }
 
-  const { data, error } = await query;
+  const fileBuffer = fs.readFileSync(filePath);
+  const ext = path.extname(filename).toLowerCase();
+  let contentType = "application/octet-stream";
 
-  if (error) return c.json({ error: error.message }, 500);
-  return c.json(data);
-});
+  switch (ext) {
+    case ".jpg":
+    case ".jpeg":
+      contentType = "image/jpeg";
+      break;
+    case ".png":
+      contentType = "image/png";
+      break;
+    case ".gif":
+      contentType = "image/gif";
+      break;
+    case ".webp":
+      contentType = "image/webp";
+      break;
+  }
 
-// POST /products → เพิ่ม product ใหม่
-productsRoute.post("/", async (c) => {
-  const body = await c.req.json();
-
-  // 1. Insert product
-  const { data: product, error: productError } = await supabaseClient
-    .from("products")
-    .insert({
-      name: body.name,
-      description: body.description,
-      price: body.price,
-      category_id: body.category_id,
-      image_url: body.image_url ?? null,
-    })
-    .select()
-    .single();
-
-  if (productError) return c.json({ error: productError.message }, 500);
-
-  // 2. Insert stock ผูกกับ product_id ที่สร้างใหม่
-  const { data: stock, error: stockError } = await supabaseClient
-    .from("stocks")
-    .insert({
-      product_id: product.product_id,
-      quantity: body.initial_stock ?? 0,
-    })
-    .select()
-    .single();
-
-  if (stockError) return c.json({ error: stockError.message }, 500);
-
-  return c.json({ message: "Product created", product, stock }, 201);
-});
-
-
-productsRoute.post("/update", async (c) => {
-  const body = await c.req.json();
-
-  // 1. Insert product
-  const { data: product, error: productError } = await supabaseClient
-    .from("products")
-    .update({
-      name: body.name,
-      description: body.description,
-      price: body.price,
-      category_id: body.category_id,
-      image_url: body.image_url ?? null,
-    })
-    .eq('product_id', body.product_id)
-    .select()
-    .single();
-
-  if (productError) return c.json({ error: productError.message }, 500);
-
-  return c.json({ message: "Product updated", product }, 201);
+  return c.body(fileBuffer, 200, {
+    "Content-Type": contentType,
+  });
 });
