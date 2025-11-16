@@ -1,0 +1,96 @@
+/* -------รูปแรก-------- */
+.toppage {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.toppage img {
+    width: 1700px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+}
+/* -------------contentทั้งหมด------------- */
+.content{
+    margin: auto;
+    max-width: 90%;
+}
+
+.shop-product{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+li {
+    position: relative;
+}
+
+.product{
+    border: rgb(160, 160, 160) solid 1px;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 20px;
+    color: black;
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#ar, #ad {
+    cursor: pointer;
+    display: none;
+}
+
+.nav-product {
+    position: absolute;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 8px;
+    width: 180px;
+    display: none; 
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.nav-product a {
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+    
+}
+
+.nav-product a:hover {
+    background: #f2f2f2;
+    
+}
+
+li:hover .nav-product {
+    display: flex;
+}
+.droprange {
+    width: 30px;
+    height: auto;
+    border: rgb(160, 160, 160) solid 1px;
+    border-radius: 5px;
+    padding: 15px 15px;
+    margin-top: 4px;
+}
