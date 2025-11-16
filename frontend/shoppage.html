@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/footer.css" />
     <link rel="stylesheet" href="./styles/shop.page.css" />
 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
@@ -22,8 +23,8 @@
         <div class="shop-product">Shop Product</div>
           <div class="tabbar">
             <ul>
-              <li><a href="#" class="product">Product<i class="fa-solid fa-angle-right" id="ar"></i><i class="fa-solid fa-angle-down" id="ad"></i></a>
-                <div class="nav-product">
+              <li><a href="#" class="product">Product<i class="fa-solid fa-angle-right" id="ar" onclick="showproduct()"></i><i class="fa-solid fa-angle-down" id="ad" onclick="closeproduct()"></i></a>
+                <div class="nav-product" id="show">
                   <a href="#">Shirts</a>
                   <a href="#">Pants</a>
                   <a href="#">Bags</a>
@@ -34,11 +35,22 @@
               <li><a href="#"><img src="/frontend/img/droprange.PNG" alt="" class="droprange"></a></li>
             </ul>
           </div>
+          <hr class="line">
+
+          <div class="allproduct">
+            <div class="pro" id="card"><img src="/frontend/img/ig.PNG" alt="" width="100%" >
+              <a href="#">
+                <p>กางเกงมด Warmkid</p>
+                <p>320 THB</p>
+              </a>
+            </div>
+            
       </div>
     </main>
-
+    
     
 
     <script src="./scripts/menu.js"></script>
+    <script src="./scripts/shop.js"></script>
   </body>
 </html>
