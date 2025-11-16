@@ -1,10 +1,16 @@
 .btn {
-
-  padding: 4px 6px;
+  /* padding: 4px 6px; */
+  padding: 0.5rem;
+  min-width: 80px;
   cursor: pointer;
-  border-radius: 4px;
   border: 1px solid black;
   color: black;
+  transition: background-color 0.2s ease;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  text-align: center;
   transition: background-color 0.2s ease;
 }
 
@@ -14,7 +20,7 @@
 }
 
 .btn-ghost svg {
-    stroke-width: 1px;
+  stroke-width: 1px;
 }
 
 .btn-ghost:hover {
@@ -26,4 +32,3 @@
   align-items: center;
   gap: 8px;
 }
-

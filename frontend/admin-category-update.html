@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/adminCategoryUpdate.page.css">
+</head>
+
+<body>
+    <main class="main-content">
+        <div class="container">
+            <form id="category-update-form" method="POST" novalidate>
+                <h2>Category Update</h2>
+
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <div class="inputblock">
+                        <input type="text" id="name" name="name" placeholder="Category Name">
+                    </div>
+                    <small class="error-message"></small>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description" placeholder="Category Description">
+                    <small class="error-message"></small>
+                </div>
+
+                
+
+                <div class="form-container">
+                    <button type="submit">Update Category</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="./scripts/categoryupdate.js"></script>
+</body>
+
+</html>
