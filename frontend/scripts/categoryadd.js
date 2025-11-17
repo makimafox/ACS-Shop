@@ -46,6 +46,7 @@ async function handleCategoryAdd(e) {
     if (categoryRes.ok) {
       console.log("Category created", categoryBody);
       alert("Category added successfully.");
+      window.location.href = "./admin-category.html";
       return;
     }
 

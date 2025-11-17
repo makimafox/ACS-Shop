@@ -17,7 +17,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  align-self: center;
+  align-self: flex-start;
   gap: 8px;
   width: 200px;
   background: #fff;
@@ -82,6 +82,16 @@
   cursor: pointer;
   font-size: 18px;
   width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 .item-title {

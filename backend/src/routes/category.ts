@@ -79,3 +79,56 @@ categoryRoute.post("/update", async (c) => {
     return c.json({ error: err.message || "DB error" }, 500);
   }
 });
+
+
+// DELETE /categories → ลบ category
+categoryRoute.post("/delete", async (c) => {
+  const body = await c.req.json();
+  const id = body.id;
+
+  console.log("Deleting category with id:", id);
+
+  if (!id) return c.json({ error: 'Missing id in request body' }, 400);
+
+  try {
+    // Check reference products
+    const prodRes = await pool.query(
+      'SELECT COUNT(*) FROM products WHERE category_id=$1',
+      [id]
+    );
+
+    const count = parseInt(prodRes.rows[0]?.count || '0', 10);
+
+    if (count > 0) {
+      return c.json({
+        error: `Cannot delete category: ${count} product(s) reference it. Remove or reassign products first.`
+      }, 400);
+    }
+
+    // Delete category + return deleted row
+    const res = await pool.query(
+      'DELETE FROM categories WHERE category_id=$1 RETURNING *',
+      [id]
+    );
+
+    if (res.rowCount === 0) {
+      return c.json({ error: 'Category not found' }, 404);
+    }
+
+    return c.json(
+      { message: 'Category deleted', category: res.rows[0] },
+      200
+    );
+
+  } catch (err: any) {
+    console.error('DB error (category delete):', err);
+
+    if (err.code === '23503') {
+      return c.json({
+        error: 'Cannot delete category because other records reference it (foreign key constraint).'
+      }, 400);
+    }
+
+    return c.json({ error: err.message || 'DB error' }, 500);
+  }
+});
