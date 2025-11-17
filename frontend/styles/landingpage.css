@@ -52,8 +52,9 @@
     line-height: 47px;
 }
 
-.text-new {
+.newitem {
     display: flex;
+    flex-wrap: wrap;
     margin-top: 20px;
     gap: 35px;
 }
