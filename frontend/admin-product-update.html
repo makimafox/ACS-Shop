@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/adminProductUpdate.page.css" />
+</head>
+
+<body>
+    <main class="main-content">
+        <div class="container">
+            <h2>Product Update</h2>
+
+            <div class="form-flex">
+                <form id="product-update-form" method="POST" novalidate>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <div class="inputblock">
+                                <input class="input" type="text" id="name" name="name" placeholder="Product Name" />
+                            </div>
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input class="input" type="text" id="description" name="description"
+                                placeholder="Product Description" />
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="category-option">Category</label>
+                            <select class="select" id="category-option" name="category" d>
+                                <option value="">Loading categories...</option>
+                            </select>
+                        </div>
+                        <div class="form-flex">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input class="input" type="text" id="price" name="price" placeholder="Product Price" />
+                                <small class="error-message"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock_quantity">Stock</label>
+                                <input class="input" type="number" id="stock_quantity" name="stock_quantity"
+                                    placeholder="Product Stock" />
+                                <small class="error-message"></small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-container">
+                        <button type="submit">Update Product</button>
+                    </div>
+                </form>
+                <form id="product-update-image-form" method="POST" novalidate>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="file">File</label>
+                            <input class="input" type="file" id="file" name="file" placeholder="Product File" />
+                            <small class="error-message"></small>
+                        </div>
+                    </div>
+                    <span>Current Image:</span>
+                    <img src="" id="preview" alt="" style="width: 100px; height: 100px;">
+                    <div class="form-container">
+                        <button type="submit">Update Image</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="./scripts/productupdate.js"></script>
+</body>
+
+</html>

@@ -15,8 +15,8 @@
   <body>
     <header class="header">
       <nav class="header-nav">
-        <div class="header-menu-button">
-          <button class="btn btn-ghost" onclick="toggleNav()">
+          <div class="header-menu-button">
+          <button class="btn btn--ghost" onclick="toggleNav()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -38,7 +38,7 @@
         <span class="header-title"> ACS SHOP </span>
         <div class="header-nav-right">
           <div style="position: relative">
-            <button class="header-login-button btn btn-ghost" id="account-btn">
+            <button class="header-login-button btn btn--ghost" id="account-btn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -72,14 +72,14 @@
               </div>
               <button
                 id="signout-btn"
-                class="btn btn-ghost btn-left"
+                class="btn btn--ghost btn--left"
                 style="font-size: 14px"
               >
                 Signout
               </button>
             </div>
           </div>
-          <a href="./cart.html" class="btn btn-ghost">
+          <a href="./cart.html" class="btn btn--ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -112,7 +112,7 @@
             <a href="#">Shop</a>
             <button
               id="submenu-shop-button"
-              class="btn btn-ghost"
+              class="btn btn--ghost"
               onclick="toggleSubmenu()"
             >
               <svg
@@ -143,7 +143,7 @@
           <a href="#" id="order-history-link">Order History</a>
           <button
             id="signout-link-btn"
-            class="btn btn-ghost btn-left"
+            class="btn btn--ghost btn--left"
             style="font-size: 14px"
           >
             Signout
@@ -159,19 +159,19 @@
 
           <div class="form-group">
             <label for="firstname">Firstname</label>
-            <input type="text" id="firstname" name="firstname" />
+            <input class="input" type="text" id="firstname" name="firstname" />
             <small class="error-message"></small>
           </div>
 
           <div class="form-group">
             <label for="lastname">Lastname</label>
-            <input type="text" id="lastname" name="lastname" />
+            <input class="input" type="text" id="lastname" name="lastname" />
             <small class="error-message"></small>
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input
+            <input class="input"
               type="email"
               id="email"
               name="email"
@@ -182,7 +182,7 @@
 
           <div class="form-group">
             <label for="address">Address</label>
-            <input
+            <input class="input"
               type="text"
               id="address"
               name="address"
@@ -193,7 +193,7 @@
 
           <div class="form-group">
             <label for="phone">Phone number</label>
-            <input
+            <input class="input"
               type="tel"
               id="phone"
               name="phone"
@@ -205,7 +205,7 @@
           <div class="password-wrapper">
             <div class="form-group">
               <label for="password">Password</label>
-              <input
+              <input class="input"
                 type="password"
                 id="password"
                 name="password"
@@ -215,7 +215,7 @@
             </div>
             <div class="form-group">
               <label for="confirm-password">Confirm Password</label>
-              <input
+              <input class="input"
                 type="password"
                 id="confirm-password"
                 name="confirm-password"

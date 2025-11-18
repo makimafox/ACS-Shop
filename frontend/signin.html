@@ -15,7 +15,7 @@
   <body>
     <header class="header">
       <nav class="header-nav">
-        <div class="header-menu-button">
+          <div class="header-menu-button">
           <button class="btn btn-ghost" onclick="toggleNav()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
         <span class="header-title"> ACS SHOP </span>
         <div class="header-nav-right">
           <div style="position: relative">
-            <button class="header-login-button btn btn-ghost" id="account-btn">
+            <button class="header-login-button btn btn--ghost" id="account-btn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -72,14 +72,14 @@
               </div>
               <button
                 id="signout-btn"
-                class="btn btn-ghost btn-left"
+                class="btn btn--ghost btn--left"
                 style="font-size: 14px"
               >
                 Signout
               </button>
             </div>
           </div>
-          <a href="./cart.html" class="btn btn-ghost">
+          <a href="./cart.html" class="btn btn--ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -112,7 +112,7 @@
             <a href="#">Shop</a>
             <button
               id="submenu-shop-button"
-              class="btn btn-ghost"
+              class="btn btn--ghost"
               onclick="toggleSubmenu()"
             >
               <svg
@@ -145,7 +145,7 @@
           <a href="#" id="order-history-link">Order History</a>
           <button
             id="signout-link-btn"
-            class="btn btn-ghost btn-left"
+            class="btn btn--ghost btn--left"
             style="font-size: 14px"
           >
             Signout
@@ -164,7 +164,7 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <div class ="inputblock">
-                    <input type="email" id="email" name="email" placeholder="example@gmail.com">
+                    <input class="input" type="email" id="email" name="email" placeholder="example@gmail.com">
                 </div>
                 <small class="error-message"></small>
             </div>
@@ -172,7 +172,7 @@
             
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="••••••••">
+                <input class="input" type="password" id="password" name="password" placeholder="••••••••">
                 <small class="error-message"></small>
             </div>
             
@@ -181,7 +181,7 @@
             </p>
 
             <div class="form-container">
-              <button type="submit">Sign in</button>
+              <button type="submit" class="btn btn--primary">Sign in</button>
             </div>
             <p class="signup-link">
                 Don't have an account ? <a href="#">Sign up</a>

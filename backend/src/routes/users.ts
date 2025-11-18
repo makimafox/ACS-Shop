@@ -12,7 +12,7 @@ userRoute.get('/', async (c) => {
   const offsetParam = c.req.query('offset');
   try {
     const params: any[] = [];
-    let sql = 'SELECT user_id, name, email, role, created_at FROM users';
+    let sql = 'SELECT user_id, name, email, role, address FROM users';
 
     if (limitParam) {
       const limit = parseInt(limitParam, 10);

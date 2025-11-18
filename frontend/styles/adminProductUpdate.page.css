@@ -56,6 +56,29 @@ h2 {
     justify-content: center; 
 }
 
+.form-flex {
+    display: flex;
+    flex: 1;
+    gap: 1rem; /* ระยะห่างระหว่าง input fields */
+}
+
+/* --- Button --- */
+button[type="submit"] {
+    width: 150px;
+    padding: 0.85rem;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
 
 /* --- Sign in Link --- */
 .signup-link {
@@ -124,5 +147,10 @@ h2 {
     /* Make submit button span full width on small screens */
     button[type="submit"] {
         width: 100%;
+    }
+
+    .form-flex{
+        flex-direction: column;
+        gap: 20px;
     }
 }

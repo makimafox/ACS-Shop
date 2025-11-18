@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/adminProductAdd.page.css">
+</head>
+
+<body>
+    <main class="main-content">
+        <div class="container">
+            <form id="product-add-form" method="POST" novalidate>
+                <h2>Product Add</h2>
+
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <div class="inputblock">
+                        <input class="input" type="text" id="name" name="name" placeholder="Product Name">
+                    </div>
+                    <small class="error-message"></small>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input class="input" type="text" id="description" name="description" placeholder="Product Description">
+                    <small class="error-message"></small>
+                </div>
+
+                <div class="form-flex">
+                    <div class="form-group">
+                        <label for="stock_quantity">Quantity</label>
+                        <input class="input" type="number" id="stock_quantity" name="quantity" placeholder="Product Quantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="category-option">Category</label>
+                            <select class="select" id="category-option" name="category" d>
+                              <option value="">Loading categories...</option>
+                            </select>
+                    </div>
+                </div>
+
+
+                <div class="form-flex">
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input class="input" type="number" id="price" name="price" placeholder="Product Price">
+                    </div>
+                    <div class="form-group">
+                        <label for="file">file</label>
+                        <input class="input" type="file" id="file" name="file" placeholder="Product Image">
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <button type="submit">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="./scripts/productadd.js" defer></script>
+</body>
+
+</html>
