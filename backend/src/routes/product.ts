@@ -14,6 +14,7 @@ if (!fs.existsSync(uploadDir)) {
 }
 
 productsRoute.get("/", async (c) => {
+  const categoryId = c.req.query("category");
   try {
     const res = await pool.query("SELECT * FROM products");
     try {      for (const product of res.rows) {
@@ -30,7 +31,7 @@ productsRoute.get("/", async (c) => {
     } catch (stockErr: any) {
       console.error("Error fetching stock for products:", stockErr);
     }
-    return c.json({ success: true, products: res.rows });
+    return c.json({ success: true, products: res.rows.filter(p => !categoryId || p.category_id.toString() === categoryId) });
   } catch (err: any) {
     console.error("Error fetching products:", err);
     return c.json({ success: false, message: err.message }, 500);

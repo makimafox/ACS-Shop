@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/product.css" />
+  </head>
+  <body>
+    <main id="container">
+      <div class="product_page">
+        <!-- Breadcrumb -->
+        <div class="breadcrumbs">
+          <a href="./shop.html">Shop</a> >
+          <span id="breadcrumb-product">กางเกงมด Warmkid</span>
+        </div>
+
+        <div class="product">
+          <!-- Left: Image -->
+          <div class="product_image-wrapper">
+            <img
+              src=""
+              class="product_image"
+              id="product_image"
+            />
+          </div>
+
+          <!-- Right: Content -->
+          <div class="product_info">
+            <h1 class="product_title" id="product_title">กางเกงมด Warmkid</h1>
+            <a href="" class="product_category" id="product_category">Pants</a>
+
+            <p class="product_price" id="product_price">THB <span>320</span></p>
+
+            <!-- Quantity -->
+             <div style="width: fit-content;">
+               <div class="qty">
+                 <div class="qty_control">
+                   <button class="qty_button btn" id="qty-minus">−</button>
+                   <div class="qty_number" id="qty-number">1</div>
+                   <button class="qty_button btn" id="qty-plus">+</button>
+                 </div>
+                 <span class="qty_stock" id="product_stock">20 in stock</span>
+               </div>
+               <button class="add-btn btn" onclick="addToCart()">Add to cart</button>
+             </div>
+
+
+            <h2 class="product_detail-title">รายละเอียดสินค้า</h2>
+            <p class="product_details" id="product_details">
+              กางเกงมด Warmkid กางเกงขายาว ผ้าฝ้ายเนื้อนุ่ม ใส่สบาย เหมาะกับทุกโอกาสawdawdawdawdawdawdawd
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./scripts/product.js" defer></script>
+  </body>
+</html>

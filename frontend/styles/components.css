@@ -1,8 +1,8 @@
 .btn {
   /* padding: 4px 6px; */
-  padding: 0.5rem;
+  padding: 0.8rem 0.5rem;
   /* min-width: 80px; */
-  max-width: fit-content;
+  width: fit-content;
   cursor: pointer;
   border: 1px solid black;
   color: black;

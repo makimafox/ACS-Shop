@@ -107,31 +107,59 @@ a {
     margin-left: 1365px;
 }
 
-.allproduct{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 102px;
-    margin-top: 50px;
-    margin-bottom: 100px;
-}
-
-.pro {
-    width: 350px;
-    height: auto;
-    background-color: #f0f0f0;
+.item {
     display: flex;
     flex-direction: column;
-}
-
-
-
-.pro a {
-    color: black;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-size: 18px;
+    flex-wrap: wrap;
     margin-top: 20px;
-    width: 100%;
-    background-color: white;
+    text-decoration: none;
 }
 
+.item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.item-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+    margin-top: 16px;
+}
+
+
+.item-description {
+    font-size: 20px;
+    color: #000000;
+    margin-top: 8px;
+    
+}
+
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์เท่ากัน */
+    gap: 48px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    padding-bottom: 20px;
+}
+
+@media (max-width:600px){
+
+    .products {
+            grid-template-columns: repeat(1, 1fr); /* 1 คอลัมน์เท่ากัน */
+        /* align-items: center; */
+    }
+
+    .toppage img {
+        width: 100%;
+        height: auto;
+        border-radius: 0px;
+        margin-top: 0px;
+    }
+    .toppage {
+        margin-top: 0px;
+    }
+}

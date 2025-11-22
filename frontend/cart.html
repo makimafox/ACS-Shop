@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    awdawd
-</body>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/cart.css" />
+  </head>
+
+  <body>
+    <main class="main">
+      <div class="title">
+        <!-- <a href="./landing.html" class="linkback">&larr; Back to Dashboard</a> -->
+        <h1>Shopping Cart</h1>
+      </div>
+
+      <div class="container">
+        
+        <div class="main-content" id="items">
+          <!-- <div class="container-add-btn">
+            <a href="./admin-user-add.html" class="btn btn--primary">Add</a>
+          </div> -->
+          
+        </div>
+        <div class="sidebar">
+          <div class="cart-summary">
+            <h2 class="summary-title">Summary</h2>
+            <div class="summary-item" style="border-top: 1px solid #ddd; padding-top: 16px;">
+              <span class="">Total</span>
+              <div class="summary-item" style="gap: 8px;">
+                <span>THB</span>
+                <span id="total-price"></span>
+
+              </div>
+            </div>
+            <button id="checkout-btn" class="btn" style="width: 100%;">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./scripts/cart.js" defer></script>
+  </body>
 </html>

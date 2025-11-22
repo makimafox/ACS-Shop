@@ -44,7 +44,7 @@ categoryRoute.get("/:id", async (c) => {
     if (res.rows.length === 0) {
       return c.json({ error: "Category not found" }, 404);
     }
-    return c.json(res.rows[0]);
+    return c.json(res.rows[0], 200);
   } catch (err: any) {
     console.error("DB error (category GET):", err);
     return c.json({ error: err.message || "DB error" }, 500);
