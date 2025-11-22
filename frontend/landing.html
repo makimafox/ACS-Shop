@@ -15,7 +15,7 @@
   <body>
     <header class="header">
       <nav class="header-nav">
-        <button class="header-menu-button btn btn--ghost" onclick="toggleNav()">
+        <button class="btn btn--ghost" onclick="toggleNav()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -33,10 +33,16 @@
             <path d="M4 19h16" />
           </svg>
         </button>
-        <span class="header-title"> ACS SHOP </span>
+        <a href="./landing.html" class="header-title">
+          <span> ACS SHOP </span>
+        </a>
         <div class="header-nav-right">
           <div style="position: relative">
-            <button class="header-login-button btn btn--ghost" id="account-btn">
+            <button
+              class="btn btn--ghost"
+              id="account-btn"
+              onclick="AccountDropdown()"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -68,13 +74,30 @@
                   >Order history</a
                 >
               </div>
-              <button
-                id="signout-btn"
-                class="btn btn--ghost btn--left"
-                style="font-size: 14px"
-              >
-                Signout
-              </button>
+              <div style="padding: 8px 0px" id="signout-btn">
+                <a
+                  style="
+                    color: black;
+                    text-decoration: none;
+                    font-size: 14px;
+                    cursor: pointer;
+                  "
+                >
+                  Signout
+                </a>
+              </div>
+              <div style="padding: 8px 0px" id="signin-btn">
+                <a
+                  style="
+                    color: black;
+                    text-decoration: none;
+                    font-size: 14px;
+                    cursor: pointer;
+                  "
+                >
+                  Signin
+                </a>
+              </div>
             </div>
           </div>
           <a href="./cart.html" class="btn btn--ghost">
@@ -103,11 +126,11 @@
 
     <div class="sidenav-overlay" id="sidenav-overlay">
       <div id="sidenav-menu" class="sidenav">
-        <a href="#">Home</a>
+        <a href="./landing.html">Home</a>
 
         <div class="sidenav-group">
           <div class="sidenav-item">
-            <a href="#">Shop</a>
+            <a href="./shop.html">Shop</a>
             <button
               id="submenu-shop-button"
               class="btn btn--ghost"
@@ -130,87 +153,113 @@
               </svg>
             </button>
           </div>
-          <div id="submenu-shop" class="sidenav-submenu">
-          </div>
+          <div id="submenu-shop" class="sidenav-submenu"></div>
         </div>
 
-        <a href="#">Cart</a>
-        <a href="#" id="admin-link">Admin</a>
-
+        <a href="./cart.html">Cart</a>
+        <a href="./admin-order.html" id="admin-link">Admin</a>
 
         <div class="sidenav-group sidenav-menu-extra">
           <a href="#" id="account-settings-link">Account Settings</a>
           <a href="#" id="order-history-link">Order History</a>
-          <button
+          <a
             id="signout-link-btn"
-            class="btn btn--ghost btn--left"
-            style="font-size: 14px"
+            style="
+              color: black;
+              text-decoration: none;
+              cursor: pointer;
+            "
           >
             Signout
-          </button>
+          </a>
+          <a
+            id="signin-link-btn"
+            style="
+              color: black;
+              text-decoration: none;
+              cursor: pointer;
+            "
+          >
+            Signin
+          </a>
         </div>
-
       </div>
     </div>
 
     <main class="main-content">
-        <div class="toppage"><img src="/frontend/img/firstproduct.PNG" alt="">
-            <div class="shopnow"><a href="#">Shop now</a></div>
+      <div class="toppage">
+        <img
+          src="/frontend/img/firstproduct.PNG"
+          alt=""
+          style="object-fit: cover"
+        />
+        <div class="shopnow"><a href="#">Shop now</a></div>
+      </div>
+      <div class="content">
+        <div class="content-title">New Arrivals</div>
+        <div class="new-arrivals" id="new-arrivals">
+          <a href="#" class="item">
+            <img src="/frontend/img/asc1.PNG" alt="" />
+            <span class="item-title">title</span>
+            <span class="item-description">description</span>
+          </a>
         </div>
-        <div class="content">
-            <div class="content-title">New Arrivals</div>
-            <div class="newitem">
-                <div class="product">
-                    <a href="#">
-                        <p>กางเกงมด Warmkid</p>
-                        <p>320 THB</p>
-                    </a>
-                </div>
-            </div>
-            <div class="content-sub">ACS Style</div>
-            <div class="acs-style">
-              <div class="container">
-                <img src="/frontend/img/asc1.PNG" alt="" class="image">
-                <div class="overlay">
-                    <div class="textlink">
-                      <a href="https://www.instagram.com/p/DMAX6s6BlCe/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                        <img src="/frontend/img/ig icon.jpg" alt="" class="ig">
-                      </a>
-                    </div>
-                </div>
-              </div>
-              <div class="container">
-                  <img src="/frontend/img/acs2.PNG" alt="" class="image">
-                  <div class="overlay">
-                      <div class="textlink">
-                        <a href="https://www.instagram.com/p/DMZNJ8sBwHW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                          <img src="/frontend/img/ig icon.jpg" alt="" class="ig">
-                        </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="container">
-                  <img src="/frontend/img/acs3.PNG" alt="" class="image">
-                  <div class="overlay">
-                      <div class="textlink">
-                        <a href="https://www.instagram.com/p/DMZNJ8sBwHW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                          <img src="/frontend/img/ig icon.jpg" alt="" class="ig">
-                        </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="container">
-                  <img src="/frontend/img/acs4.PNG" alt="" class="image">
-                  <div class="overlay">
-                      <div class="textlink">
-                        <a href="https://www.instagram.com/p/DMZNJ8sBwHW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
-                          <img src="/frontend/img/ig icon.jpg" alt="" class="ig">
-                        </a>
-                      </div>
-                  </div>
+        <div class="content-sub">ACS Style</div>
+        <div class="acs-style">
+          <div class="container">
+            <img src="/frontend/img/asc1.PNG" alt="" class="image" />
+            <div class="overlay">
+              <div class="textlink">
+                <a
+                  href="https://www.instagram.com/p/DMAX6s6BlCe/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                  target="_blank"
+                >
+                  <img src="/frontend/img/ig icon.jpg" alt="" class="ig" />
+                </a>
               </div>
             </div>
+          </div>
+          <div class="container">
+            <img src="/frontend/img/acs2.PNG" alt="" class="image" />
+            <div class="overlay">
+              <div class="textlink">
+                <a
+                  href="https://www.instagram.com/p/DMZNJ8sBwHW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                  target="_blank"
+                >
+                  <img src="/frontend/img/ig icon.jpg" alt="" class="ig" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <img src="/frontend/img/acs3.PNG" alt="" class="image" />
+            <div class="overlay">
+              <div class="textlink">
+                <a
+                  href="https://www.instagram.com/p/DMZNJ8sBwHW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                  target="_blank"
+                >
+                  <img src="/frontend/img/ig icon.jpg" alt="" class="ig" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <img src="/frontend/img/acs4.PNG" alt="" class="image" />
+            <div class="overlay">
+              <div class="textlink">
+                <a
+                  href="https://www.instagram.com/p/DMZNJ8sBwHW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                  target="_blank"
+                >
+                  <img src="/frontend/img/ig icon.jpg" alt="" class="ig" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </main>
 
     <footer class="footer">
@@ -310,6 +359,7 @@
       <div class="footer-bottom">© ACS SHOP, all rights reserved</div>
     </footer>
 
-    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/menu.js" defer></script>
+    <script src="./scripts/landing.js" defer></script>
   </body>
 </html>

@@ -46,73 +46,41 @@ function toggleSubmenu() {
   }
 }
 
-function accountopen() {
-  const btn = document.getElementById("account-btn");
-  const menu = document.getElementById("account-dropdown");
-
-  // Toggle dropdown on button click
-  btn.addEventListener("click", function (e) {
-    // e.stopPropagation();
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-  });
-
-  // Prevent clicks inside menu from closing it
-  // menu.addEventListener("click", function (e) {
-  //   e.stopPropagation();
-  // });
-
-  // // Close when clicking outside or pressing Escape
-  // document.addEventListener("click", function () {
-  //   menu.style.display = "none";
-  // });
-}
-
-// Initialize account dropdown listeners immediately so a single click toggles it.
-// This avoids the need to first call `accountopen()` from an inline onclick.
-(function initAccountDropdown() {
-  const btn = document.getElementById("account-btn");
-  const menu = document.getElementById("account-dropdown");
-  if (!btn || !menu) return;
-
-  // Toggle dropdown on button click
-  btn.addEventListener("click", function (e) {
-    e.stopPropagation();
-    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-  });
-
-  // Prevent clicks inside menu from closing it
-  menu.addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
-
-  // Close when clicking outside
-  document.addEventListener("click", function () {
-    menu.style.display = "none";
-  });
-
-  // Close on Escape
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") menu.style.display = "none";
-  });
-})();
-
 function signout() {
   localStorage.removeItem("token");
   window.location.href = "./index.html";
 }
 
+function signin() {
+  window.location.href = "./signin.html";
+}
+
 const signoutButton = document.getElementById("signout-btn");
+const signinButton = document.getElementById("signin-btn");
 const signoutLinkButton = document.getElementById("signout-link-btn");
+const signinLinkButton = document.getElementById("signin-link-btn");
+const accountSetting = document.getElementById("account-settings-link");
+const orderHistoryLink = document.getElementById("order-history-link");
+
 if (localStorage.getItem("token")) {
+  signinButton.style.display = "none";
+  signinLinkButton.style.display = "none";
+  accountSetting.style.display = "block";
+  orderHistoryLink.style.display = "block";
   signoutLinkButton.style.display = "block";
   signoutLinkButton.addEventListener("click", signout);
   signoutButton.style.display = "block";
   signoutButton.addEventListener("click", signout);
 } else {
+  signinButton.style.display = "block";
+  signinLinkButton.style.display = "block";
+  accountSetting.style.display = "none";
+  orderHistoryLink.style.display = "none";
+  signinButton.addEventListener("click", signin);
+  signinLinkButton.addEventListener("click", signin);
   signoutLinkButton.style.display = "none";
   signoutButton.style.display = "none";
 }
-
 
 // Admin link visibility
 const adminLink = document.getElementById("admin-link");
@@ -128,14 +96,13 @@ if (token) {
   adminLink.style.display = "none";
 }
 
-
 const categorysubmenu = document.getElementById("submenu-shop");
 fetch("http://localhost:8000/category?limit=5")
   .then((response) => response.json())
   .then((data) => {
     data.forEach((category) => {
       const categoryLink = document.createElement("a");
-      categoryLink.href = `#`;
+      categoryLink.href = `./shop.html?category=${category.category_id}`;
       categoryLink.textContent = category.name;
       categorysubmenu.appendChild(categoryLink);
     });
@@ -143,3 +110,24 @@ fetch("http://localhost:8000/category?limit=5")
   .catch((error) => {
     console.error("Error fetching categories:", error);
   });
+
+function AccountDropdown() {
+  const dropdown = document.getElementById("account-dropdown");
+  if (!dropdown) return;
+  const isOpen = dropdown.classList.contains("open");
+  if (isOpen) {
+
+    dropdown.classList.remove("open");
+  } else {
+    dropdown.classList.add("open");
+  }
+}
+
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const dropdown = document.getElementById("account-dropdown");
+// if (!dropdown) return;
+// dropdown.style.height = "0px";
+// dropdown.style.visibility = "hidden";
+// });

@@ -1,7 +1,8 @@
 .btn {
   /* padding: 4px 6px; */
   padding: 0.5rem;
-  min-width: 80px;
+  /* min-width: 80px; */
+  max-width: fit-content;
   cursor: pointer;
   border: 1px solid black;
   color: black;
@@ -21,12 +22,12 @@
   border: none;
 }
 
-.btn-ghost > svg {
-  max-width: fit-content;
-}
+
 
 .btn-ghost svg {
   stroke-width: 1px;
+  min-width: none;
+  max-width: fit-content;
 }
 
 .btn-ghost:hover {
@@ -110,3 +111,19 @@
 
 /* best-effort: apply baseline styles to native option elements where allowed */
 select option { padding: 0.25rem 0.5rem; font-size: 20px;}
+
+
+.linkback {
+  display: inline-flex;
+  align-items: center;
+  margin: 18px 0px;
+  gap: 6px;
+  text-decoration: none;
+  color: #111827;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.linkback:hover {
+  color: #6b7280;
+}
