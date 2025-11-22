@@ -183,3 +183,20 @@ async function loadCartItems() {
   totalEl.textContent = `${totalPrice}`;
   localStorage.setItem("total-price", totalPrice);
 }
+
+
+function checkout() {
+  if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+
+  if (!localStorage.getItem("token")) {
+    alert("Please sign in to proceed to checkout.");
+    window.location.href = "./signin.html";
+    return;
+  }else {
+    window.location.href = "./checkout.html";
+  }
+}
+
