@@ -59,14 +59,18 @@ const signoutButton = document.getElementById("signout-btn");
 const signinButton = document.getElementById("signin-btn");
 const signoutLinkButton = document.getElementById("signout-link-btn");
 const signinLinkButton = document.getElementById("signin-link-btn");
-const accountSetting = document.getElementById("account-settings-link");
+const accountSettingsLink = document.getElementById("account-settings-link");
 const orderHistoryLink = document.getElementById("order-history-link");
+const accountSettingsBtn = document.getElementById("account-settings-btn");
+const orderHistoryBtn = document.getElementById("order-history-btn");
 
 if (localStorage.getItem("token")) {
   signinButton.style.display = "none";
   signinLinkButton.style.display = "none";
-  accountSetting.style.display = "block";
+  accountSettingsLink.style.display = "block";
+  accountSettingsBtn.style.display = "block";
   orderHistoryLink.style.display = "block";
+  orderHistoryBtn.style.display = "block";
   signoutLinkButton.style.display = "block";
   signoutLinkButton.addEventListener("click", signout);
   signoutButton.style.display = "block";
@@ -74,8 +78,10 @@ if (localStorage.getItem("token")) {
 } else {
   signinButton.style.display = "block";
   signinLinkButton.style.display = "block";
-  accountSetting.style.display = "none";
+  accountSettingsLink.style.display = "none";
+  accountSettingsBtn.style.display = "none";
   orderHistoryLink.style.display = "none";
+  orderHistoryBtn.style.display = "none";
   signinButton.addEventListener("click", signin);
   signinLinkButton.addEventListener("click", signin);
   signoutLinkButton.style.display = "none";
