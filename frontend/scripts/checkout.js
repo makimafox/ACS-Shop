@@ -1,0 +1,1 @@
+document.getElementById("total-price").textContent = localStorage.getItem("total-price") || "0";

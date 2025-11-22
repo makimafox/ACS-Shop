@@ -61,6 +61,15 @@
   min-width: 88px;
 }
 
+.btn--outline {
+  background-color: transparent;
+  color: #262626;
+  border: 1px solid #262626;
+  border-radius: 0px;
+  padding: 0.5rem 0.75rem;
+  min-width: 88px;
+}
+
 /* basic input component */
 .input {
   display: block;
