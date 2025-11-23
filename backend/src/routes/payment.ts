@@ -39,7 +39,7 @@ paymentRoute.get('/', async (c) => {
 paymentRoute.post("/", async (c) => {
   const body = await c.req.json();
     try {
-      const res = await pool.query('INSERT INTO payments (order_id, amount, status) VALUES ($1,$2,$3) RETURNING *', [body.order_id, body.amount, body.status]);
+      const res = await pool.query('INSERT INTO payments (order_id, status) VALUES ($1,$2) RETURNING *', [body.order_id, body.status]);
       return c.json({ message: 'Payment created', payment: res.rows[0] }, 201);
     } catch (err: any) {
       console.error('DB error (payment create):', err);

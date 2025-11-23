@@ -173,19 +173,19 @@ async function signUp(e) {
                 console.log('Signin after signup successful', signinBody);
                 localStorage.setItem('token', signinBody.token);
                 // Redirect to home or dashboard
-                window.location.href = './index.html';
+                window.location.href = './landing.html';
                 return;
             }
 
             console.log('Signin after signup failed', signinRes.status, signinBody);
             // Fall back to asking user to sign in manually
             alert('Sign up successful! Please sign in.');
-            window.location.href = './index.html';
+            window.location.href = './landing.html';
 
         } catch (err) {
             console.error('Signin after signup error', err);
             alert('Sign up successful! Error signing in automatically — please sign in.');
-            window.location.href = './index.html';
+            window.location.href = './landing.html';
         }
 
 

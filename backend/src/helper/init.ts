@@ -54,7 +54,6 @@ export async function init(pool: any) {
         payment_id SERIAL PRIMARY KEY,
         order_id INTEGER NOT NULL UNIQUE REFERENCES orders(order_id) ON DELETE CASCADE,
         payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        amount NUMERIC(10,2) NOT NULL,
         status VARCHAR(20) NOT NULL,
         CHECK (status IN ('Success','Failed'))
       );

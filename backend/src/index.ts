@@ -9,6 +9,8 @@ import { cors } from 'hono/cors'
 import { init } from './helper/init'
 import { pool } from './libs/db'
 import { seed } from './helper/seed'
+import { orderRoute } from './routes/order'
+import { paymentRoute } from './routes/payment'
 
 init(pool).then(() => {
   console.log('Database initialized')
@@ -34,6 +36,8 @@ app.route('/protected', protectedRoute)
 app.route('/products', productsRoute)
 app.route('/category', categoryRoute)
 app.route('/stock', stockRoute)
+app.route('/order', orderRoute)
+app.route('/payment', paymentRoute)
 
 // test route
 app.get('/', (c) => c.text('Hono + MySQL2 API running!'))

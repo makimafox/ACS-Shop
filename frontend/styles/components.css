@@ -70,6 +70,10 @@
   min-width: 88px;
 }
 
+.btn-minwidth {
+  min-width: 120px;
+}
+
 /* basic input component */
 .input {
   display: block;

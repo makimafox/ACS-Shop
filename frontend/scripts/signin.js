@@ -92,7 +92,7 @@ async function signIn(e) {
       console.log('Signin successful', body);
       localStorage.setItem('token', body.token);
       // redirect to home/dashboard
-      window.location.href = './index.html';
+      window.location.href = './landing.html';
       return;
     }
 

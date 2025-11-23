@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="./styles/components.css" />
+  <link rel="stylesheet" href="./styles/accountsettings.page.css" />
+</head>
+
+<body>
+  <main class="main">
+    <div class="title">
+      <h1>Account Settings</h1>
+    </div>
+
+    <div class="container">
+      <div class="sidebar">
+        <a href="#username-settings" class="sidebar-item">Username</a>
+        <a href="#password-settings" class="sidebar-item">Password</a>
+        <a href="#address-settings" class="sidebar-item">Address</a>
+        <a href="#phone-settings" class="sidebar-item">Phone</a>
+      </div>
+
+      <div class="main-content" id="items">
+        <div class="form-container">
+          <div class="form-group">
+            <a id="username-settings"></a>
+            <form id="username-settings-form" method="POST" novalidate>
+              <label for="username">Username</label>
+              <div class="form-input">
+                <input class="input input-width" type="text" id="username" name="username" placeholder="username" />
+              </div>
+              <button type="submit" class="btn btn-minwidth">Save</button>
+            </form>
+          </div>
+
+          <div class="form-group">
+            <a id="password-settings"></a>
+            <form id="password-settings-form" method="POST" novalidate>
+              <label for="security">Security</label>
+              <div id="security" class="form-input">
+                <input class="input input-width" type="text" id="current-password" name="current-password" placeholder="currentpassword" />
+                <input class="input input-width" type="text" id="new-password" name="new-password" placeholder="newpassword" />
+              </div>
+              <button type="submit" class="btn btn-minwidth">Save</button>
+            </form>
+          </div>
+
+          <div class="form-group">
+            <a id="address-settings"></a>
+            <form id="address-settings-form" method="POST" novalidate>
+              <label for="address">Address</label>
+              <div class="form-input">
+                <input class="input input-width" type="text" id="address" name="address" placeholder="Address" />
+              </div>
+              <button type="submit" class="btn btn-minwidth">Save</button>
+            </form>
+          </div>
+
+          <div class="form-group">
+            <a id="phone-settings"></a>
+            <form id="phone-settings-form" method="POST" novalidate>
+              <label for="phone">Phone</label>
+              <div class="form-input">
+                <input class="input input-width" type="text" id="phone" name="phone" placeholder="Phone" />
+              </div>
+              <button type="submit" class="btn btn-minwidth">Save</button>
+            </form>
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./scripts/settings.js" defer></script>
+</body>
+
+</html>
