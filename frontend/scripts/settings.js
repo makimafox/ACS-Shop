@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const phoneFormGroup = document.getElementById("phone-settings-form");
 
   const token = localStorage.getItem("token");
-  if (!token) {
-    alert("You must be signed in to access account settings.");
-    window.location.href = "./signin.html";
-    return;
-  }
+  // if (!token) {
+  //   alert("You must be signed in to access account settings.");
+  //   window.location.href = "./signin.html";
+  //   return;
+  // }
 
   passwordFormGroup.addEventListener("submit", async (e) => {
     e.preventDefault();

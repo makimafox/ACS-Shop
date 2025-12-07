@@ -115,12 +115,12 @@ h2 {
 }
 
 
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 1rem;
-    width: 75%;
-    max-width: none;
-  }
+@media screen and (max-width: 400px) {
+    .container {
+        padding: 1rem;
+        width: 75%;
+        max-width: none;
+    }
     /* Make submit button span full width on small screens */
     button[type="submit"] {
         width: 100%;

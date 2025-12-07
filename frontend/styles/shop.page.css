@@ -54,18 +54,21 @@ li {
     padding: 14px 14px;
     text-decoration: none;
     margin-top: 20px;
+    justify-content: space-between;
 }
 
 #ar {
     display: inline-block; 
     cursor: pointer;
     margin-left: 150px;
+    margin-top: 2px;
 }
 
 #ad {
     display: none; 
     cursor: pointer;
     margin-left: 150px;
+    margin-top: 2px;
 }
 
 .nav-product {
@@ -146,11 +149,10 @@ a {
     padding-bottom: 20px;
 }
 
-@media (max-width:600px){
+@media (max-width: 400px){
 
     .products {
-            grid-template-columns: repeat(1, 1fr); /* 1 คอลัมน์เท่ากัน */
-        /* align-items: center; */
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .toppage img {
@@ -159,7 +161,36 @@ a {
         border-radius: 0px;
         margin-top: 0px;
     }
+
     .toppage {
         margin-top: 0px;
+        margin-bottom: 30px;
+    }
+
+    .shop-product {
+        font-size: 28px;
+    }
+
+    /* ลดขนาดเมนูสินค้า */
+    ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    #ar, #ad {
+        margin-left: 40px;
+    }
+
+    .product {
+        width: 100%;
+        text-align: left;
+    }
+
+    .droprange {
+        margin-left: 0;
+        padding: 10px;
+        width: 55px;
     }
 }
+
