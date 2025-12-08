@@ -93,6 +93,7 @@ const adminLink = document.getElementById("admin-link");
 const token = localStorage.getItem("token");
 if (token) {
   const payload = JSON.parse(atob(token.split(".")[1]));
+  console.log("User payload:", payload);
   if (payload.role && payload.role === "admin") {
     adminLink.style.display = "block";
   } else {

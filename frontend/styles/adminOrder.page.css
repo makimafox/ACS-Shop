@@ -1,0 +1,215 @@
+.main {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  position: sticky;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 8px;
+  width: 200px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding-top: 40px;
+  padding-right: 40px;
+}
+
+/* main-content: the area to the right of the sidebar */
+.main-content {
+  flex: 1;
+  padding-left: 40px;
+}
+
+.sidebar-item {
+  padding: 12px 20px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.sidebar-item:hover {
+  background-color: #eeeeee;
+}
+
+.sidebar-item.active {
+  background: #e0e0e0;
+  font-weight: bold;
+}
+
+.title {
+  flex: 1;
+  padding: 20px 0px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 64px;
+}
+
+.title h1 {
+  font-size: 40px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.order-card {
+    width: 480px;
+    background: #fff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 25px 30px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start
+  }
+
+  .order-left {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .order-right {
+    text-align: right;
+  }
+
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .address {
+    font-size: 14px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  .icon-row {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    color: #333;
+    align-items: center;
+  }
+
+  .items {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  .items p {
+    margin-top: 6px;
+    margin-left: 20px;
+  }
+  .items p + p {
+    margin-top: 6px;
+  }
+
+  .total {
+    font-size: 20px;
+    font-weight: bold;
+    align-self: center;
+  }
+
+  .finish-btn {
+    margin-top: 20px;
+    display: block;
+    width: 150px;
+    padding: 12px;
+    text-align: center;
+    background: #222;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: auto;
+    border: none;
+    font-size: 16px;
+  }
+
+  .finish-btn:hover {
+    background: #000;
+  }
+
+@media (max-width: 480px) {
+  .title h1 {
+    font-size: 20px;
+  }
+
+  .container-add-btn {
+    justify-content: start;
+  }
+
+  .item {
+    padding: 16px 0px;
+  }
+
+  .item-title {
+    font-size: 16px;
+  }
+
+  .item-sub {
+    font-size: 13px;
+  }
+
+  /* Extra spacing and clearer gaps for small phones */
+  /* Stack layout: sidebar becomes a horizontal, scrollable nav on phones */
+  .container {
+    flex-direction: column;
+    gap: 12px; /* space between sidebar and content */
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 8px 10px;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+  }
+
+  .sidebar-item {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: transparent;
+  }
+
+  .sidebar-item.active {
+    background: #eaeaea;
+  }
+
+  /* Clear gap between sidebar and main content */
+  .main-content {
+    margin-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  /* Make `.main` responsive only at 480px: reduce padding & vertical spacing */
+  .main {
+    
+    padding: 0.75rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+}

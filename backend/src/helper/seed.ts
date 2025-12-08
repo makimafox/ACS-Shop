@@ -13,6 +13,15 @@ async function seed() {
 
     // Insert users
     const passwordHash = await bcrypt.hash('Password123!', 10);
+    
+    // Insert admin user
+    const adminRes = await pool.query(
+      'INSERT INTO users (name, email, password_hash, role, phone, address) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *',
+      ['Admin User', 'admin@example.com', passwordHash, 'admin', '098-765-4321', '456 Admin Ave']
+    );
+    const admin = adminRes.rows[0];
+    
+    // Insert regular user
     const userRes = await pool.query(
       'INSERT INTO users (name, email, password_hash, role, phone, address) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *',
       ['Alice Example', 'alice@example.com', passwordHash, 'user', '012-345-6789', '123 Example St']
@@ -23,9 +32,14 @@ async function seed() {
     const catRes = await pool.query(
       `INSERT INTO categories (name, description) VALUES
       ($1,$2),
-      ($3,$4)
+      ($3,$4),
+      ($5,$6)
       RETURNING *`,
-      ['Electronics', 'Devices and gadgets', 'Clothing', 'Apparel and accessories']
+      [
+        'Electronics', 'Devices and gadgets', 
+        'Clothing', 'Apparel and accessories',
+        'Home & Garden', 'Home improvement and garden supplies'
+      ]
     );
     const categories = catRes.rows;
 
@@ -33,45 +47,94 @@ async function seed() {
     const prodRes = await pool.query(
       `INSERT INTO products (category_id, name, description, price, image_url) VALUES
       ($1,$2,$3,$4,$5),
-      ($6,$7,$8,$9,$10)
+      ($6,$7,$8,$9,$10),
+      ($11,$12,$13,$14,$15),
+      ($16,$17,$18,$19,$20)
       RETURNING *`,
       [
         categories[0].category_id,
         'Smartphone X',
-        'A modern smartphone',
+        'A modern smartphone with advanced features',
         699.99,
-        'https://example.com/smartphone.jpg',
+        'smartphone.jpg',
         categories[0].category_id,
         'Wireless Headphones',
-        'Noise-cancelling headphones',
+        'Noise-cancelling wireless headphones',
         199.99,
-        'https://example.com/headphones.jpg',
+        'headphones.jpg',
+        categories[1].category_id,
+        'Cotton T-Shirt',
+        'Comfortable cotton t-shirt',
+        29.99,
+        'tshirt.jpg',
+        categories[2].category_id,
+        'Garden Tools Set',
+        'Complete set of garden tools',
+        89.99,
+        'garden-tools.jpg'
       ]
     );
     const products = prodRes.rows;
 
     // Insert stocks
     for (const p of products) {
-      await pool.query('INSERT INTO stocks (product_id, quantity) VALUES ($1,$2)', [p.product_id, 50]);
+      await pool.query('INSERT INTO stocks (product_id, quantity) VALUES ($1,$2)', [
+        p.product_id, 
+        Math.floor(Math.random() * 100) + 20 // Random stock between 20-120
+      ]);
     }
 
-    // Create an order
-    const orderRes = await pool.query(
+    // Create multiple orders with different statuses
+    const order1Res = await pool.query(
       'INSERT INTO orders (user_id, total_amount, status) VALUES ($1,$2,$3) RETURNING *',
       [user.user_id, 899.98, 'Pending']
     );
-    const order = orderRes.rows[0];
+    const order1 = order1Res.rows[0];
 
-    // Insert order items
+    const order2Res = await pool.query(
+      'INSERT INTO orders (user_id, total_amount, status) VALUES ($1,$2,$3) RETURNING *',
+      [user.user_id, 29.99, 'Completed']
+    );
+    const order2 = order2Res.rows[0];
+    
+    const order3Res = await pool.query(
+      'INSERT INTO orders (user_id, total_amount, status) VALUES ($1,$2,$3) RETURNING *',
+      [admin.user_id, 289.98, 'Pending']
+    );
+    const order3 = order3Res.rows[0];
+
+    // Insert order items for order 1 (Pending)
     await pool.query(
       'INSERT INTO order_items (order_id, product_id, quantity) VALUES ($1,$2,$3), ($4,$5,$6)',
-      [order.order_id, products[0].product_id, 1, order.order_id, products[1].product_id, 1]
+      [order1.order_id, products[0].product_id, 1, order1.order_id, products[1].product_id, 1]
     );
 
-    // Insert payment
+    // Insert order items for order 2 (Completed)
+    await pool.query(
+      'INSERT INTO order_items (order_id, product_id, quantity) VALUES ($1,$2,$3)',
+      [order2.order_id, products[2].product_id, 1]
+    );
+    
+    // Insert order items for order 3 (Pending)
+    await pool.query(
+      'INSERT INTO order_items (order_id, product_id, quantity) VALUES ($1,$2,$3), ($4,$5,$6)',
+      [order3.order_id, products[1].product_id, 1, order3.order_id, products[3].product_id, 1]
+    );
+
+    // Insert payments
     await pool.query(
       'INSERT INTO payments (order_id, amount, status) VALUES ($1,$2,$3)',
-      [order.order_id, 899.98, 'Success']
+      [order1.order_id, 899.98, 'Pending']
+    );
+    
+    await pool.query(
+      'INSERT INTO payments (order_id, amount, status) VALUES ($1,$2,$3)',
+      [order2.order_id, 29.99, 'Success']
+    );
+    
+    await pool.query(
+      'INSERT INTO payments (order_id, amount, status) VALUES ($1,$2,$3)',
+      [order3.order_id, 289.98, 'Pending']
     );
 
     await pool.query('COMMIT');
