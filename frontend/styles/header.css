@@ -31,7 +31,13 @@
   justify-content: flex-end;
   align-items: center;
   justify-self: end;
+  
 }
+
+.header-nav-right .btn {
+  padding: 15px;
+}
+
 
 .header-title {
   font-size: 28px;
@@ -151,35 +157,93 @@
 }
 
 @media screen and (max-width: 768px) {
-  .header-login-button {
-    display: none;
-  }
-
-  .header-title {
-    font-size: 16px;
-    font-weight: 400;
-    color: black;
-    text-decoration: none;
+  .header {
+    height: 55px;
   }
 
   .header-nav {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 0 12px;
+    grid-template-columns: auto 1fr auto;
   }
 
-  .sidenav-menu-extra {
-    display: block;
+  /* ปุ่ม 3 ขีดชิดซ้าย */
+  .header-nav button.btn {
+    padding: 8px !important;
+  }
+
+  /* โลโก้ให้อยู่กลางแบบสมจริง */
+  .header-title {
+    font-size: 18px;
+    justify-self: center;
+    text-align: center;
+    margin-left: 8px;
+  }
+
+  /* ปุ่มด้านขวา */
+  .header-nav-right {
+    gap: 4px;
+  }
+
+  .header-nav-right .btn {
+    padding: 8px !important;
+  }
+
+  /* Dropdown account ปิดบนมือถือ */
+  #account-btn {
+    display: none;
+  }
+
+  /* Drawer menu */
+  .sidenav.open {
+    width: 75%;
   }
 
   .sidenav-overlay {
-    top: 60px;
+    top: 55px;
+  }
+  
+}
+
+@media (max-width: 480px) {
+
+  .header {
+    height: 55px;
   }
 
-  .sidenav.open {
-    width: 80%;
+  .header-nav {
+    padding: 0 12px;
+    grid-template-columns: auto 1fr auto;
   }
 
-  #account-btn{
+  /* ปุ่ม 3 ขีดชิดซ้าย */
+  .header-nav button.btn {
+    padding: 8px !important;
+  }
+
+  /* โลโก้ให้อยู่กลางแบบสมจริง */
+  .header-title {
+    font-size: 18px;
+    justify-self: center;
+    text-align: center;
+    margin-left: 8px;
+  }
+
+  /* ปุ่มด้านขวา */
+  .header-nav-right {
+    gap: 4px;
+  }
+
+  .header-nav-right .btn {
+    padding: 8px !important;
+  }
+
+  /* Dropdown account ปิดบนมือถือ */
+  #account-btn {
     display: none;
+  }
+
+  /* Drawer menu */
+  .sidenav.open {
+    width: 75%;
   }
 }

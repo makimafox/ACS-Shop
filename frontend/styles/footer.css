@@ -81,14 +81,20 @@
   opacity: 0.8;
 }
 
+.footer h2 {
+  text-align: left !important;
+  color: #fff !important;
+  margin-bottom: 20px !important;
+}
+
 /* Responsive */
-@media (max-width: 850px) {
+@media (max-width: 768px) {
   .footer-inner {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 480px) {
   .footer-inner {
     grid-template-columns: 1fr;
   }

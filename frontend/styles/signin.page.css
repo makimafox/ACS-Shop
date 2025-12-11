@@ -56,6 +56,10 @@ h2 {
     justify-content: center; 
 }
 
+.btn {
+    padding: 15px 40px;
+}
+
 
 /* --- Sign in Link --- */
 .signup-link {
@@ -74,6 +78,14 @@ h2 {
 .signup-link a:hover {
     text-decoration: underline;
 }
+
+#singin-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 /* --- Validation Styles --- */
 .error-message {
@@ -97,32 +109,49 @@ h2 {
     border-color: #28a745; /* เปลี่ยนขอบเป็นสีเขียว */
 }
 
-.forgot-password{
-    text-align: right;
-    margin-top: 0.5rem; 
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-.forgot-password a {
-    color: #000000;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-
-
-@media screen and (max-width: 400px) {
+@media (max-width: 768px) {
     .container {
-        padding: 1rem;
-        width: 75%;
-        max-width: none;
+        max-width: 90%;
+        padding: 2rem;
+        margin: 30px auto;
     }
-    /* Make submit button span full width on small screens */
-    button[type="submit"] {
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .btn {
         width: 100%;
+        padding: 14px 0;
+        font-size: 1rem;
     }
+
+}
+
+@media (max-width: 480px) {
+    .container {
+    padding: 1.2rem;
+    max-width: 92%;
+    margin: 20px auto;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 0.95rem;
+  }
+
+  .signup-link {
+    font-size: 0.8rem;
+  }
 }

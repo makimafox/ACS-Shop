@@ -162,70 +162,141 @@
   background: #000;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+
+  .main {
+    padding: 20px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    margin-bottom: 30px;
+    width: 95%;
+  }
+
   .title h1 {
-    font-size: 20px;
+    font-size: 28px;
   }
 
-  .container-add-btn {
-    justify-content: start;
+  .subtitle h3 {
+    font-size: 22px;
   }
 
-  .item {
-    padding: 16px 0px;
-  }
-
-  .item-title {
-    font-size: 16px;
-  }
-
-  .item-sub {
-    font-size: 13px;
-  }
-
-  /* Extra spacing and clearer gaps for small phones */
-  /* Stack layout: sidebar becomes a horizontal, scrollable nav on phones */
+  /* Stack layout */
   .container {
     flex-direction: column;
-    gap: 12px; /* space between sidebar and content */
+    gap: 16px;
   }
 
+  /* Sidebar horizontal scroll */
   .sidebar {
-    display: flex;
     flex-direction: row;
-    gap: 8px;
-    padding: 8px 10px;
     width: 100%;
+    gap: 10px;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    padding: 10px 8px;
     border-right: none;
-    border-bottom: 1px solid #eee;
-    align-items: center;
+    border-bottom: 1px solid #ddd;
+
+    /* remove sticky here */
+    position: static !important;
+    top: auto !important;
   }
 
   .sidebar-item {
     flex: 0 0 auto;
     white-space: nowrap;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 6px;
-    background: transparent;
   }
 
-  .sidebar-item.active {
-    background: #eaeaea;
-  }
-
-  /* Clear gap between sidebar and main content */
   .main-content {
-    margin-top: 12px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 6px;
   }
-  /* Make `.main` responsive only at 480px: reduce padding & vertical spacing */
-  .main {
-    padding: 0.75rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
+
+  .order-card {
+    width: 89%;
+    padding: 20px;
   }
 }
+
+@media (max-width: 480px) {
+
+  .main {
+    padding: 10px 18px;
+  }
+
+  .title {
+    padding-top: 0;
+    margin-bottom: 18px;
+  }
+
+  .title h1 {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    margin-bottom: 10px;
+  }
+
+  .subtitle h3 {
+    font-size: 18px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .sidebar {
+    padding: 8px 6px;
+    gap: 8px;
+
+    /* remove sticky */
+    position: static !important;
+    top: auto !important;
+  }
+
+  .sidebar-item {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .main-content {
+    padding: 0 4px;
+  }
+
+  .order-card {
+    width: 84%;
+    padding: 18px 18px;
+  }
+
+  .order-left {
+    font-size: 15px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .address,
+  .icon-row {
+    font-size: 12px;
+  }
+
+  .items {
+    font-size: 14px;
+  }
+
+  .total {
+    font-size: 16px;
+  }
+
+  .finish-btn {
+    width: 100%;
+    margin-top: 14px;
+    font-size: 15px;
+  }
+}
+

@@ -8,9 +8,123 @@
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/components.css" />
     <link rel="stylesheet" href="./styles/adminProductUpdate.page.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
 </head>
 
 <body>
+    <header class="header">
+      <nav class="header-nav">
+        <button class="btn btn--ghost" onclick="toggleNav()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu-icon lucide-menu"
+          >
+            <path d="M4 5h16" />
+            <path d="M4 12h16" />
+            <path d="M4 19h16" />
+          </svg>
+        </button>
+        <a href="./landing.html" class="header-title">
+          <span> ACS SHOP </span>
+        </a>
+        <div class="header-nav-right">
+          <div style="position: relative">
+            <button
+              class="btn btn--ghost"
+              id="account-btn"
+              onclick="AccountDropdown()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-user-round-icon lucide-user-round"
+              >
+                <circle cx="12" cy="8" r="5" />
+                <path d="M20 21a8 8 0 0 0-16 0" />
+              </svg>
+            </button>
+            <div id="account-dropdown" class="account-content">
+              <div style="padding: 8px 0px; border-bottom: 1px solid lightgray" id="account-settings-btn">
+                <a
+                  
+                  href="./account-settings.html"
+                  style="color: black; text-decoration: none; font-size: 14px"
+                  >Account settings</a
+                >
+              </div>
+              <div style="padding: 8px 0px; border-bottom: 1px solid lightgray" id="order-history-btn">
+                <a
+                  
+                  href="./order-history.html"
+                  style="color: black; text-decoration: none; font-size: 14px"
+                  >Order history</a
+                >
+              </div>
+              <div style="padding: 8px 0px" id="signout-btn">
+                <a
+                  style="
+                    color: black;
+                    text-decoration: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                  "
+                >
+                  Signout
+                </a>
+              </div>
+              <div style="padding: 8px 0px" id="signin-btn">
+                <a
+                  style="
+                    color: black;
+                    text-decoration: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                  "
+                >
+                  Signin
+                </a>
+              </div>
+            </div>
+          </div>
+          <a href="./cart.html" class="btn btn--ghost">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+            >
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path
+                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+              />
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </header>
     <main class="main-content">
         <div class="container">
             <h2>Product Update</h2>
@@ -72,7 +186,86 @@
             </div>
         </div>
     </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <!-- Column 1 -->
+        <div class="footer-col">
+          <h2 class="footer-title">ACS SHOP</h2>
+
+          <p class="footer-subtitle">ติดตามเรา</p>
+          <div class="socials">
+            <a
+              href="https://www.facebook.com/p/Applied-Computer-Science-KMUTT-100086247692906/?locale=th_TH"
+              target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-facebook-icon lucide-facebook"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                /></svg
+            ></a>
+            <a href="https://www.instagram.com/dek_warmkid/" target="_blank"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-instagram-icon lucide-instagram"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg
+            ></a>
+          </div>
+
+          <p class="footer-subtitle">ติดต่อเรา</p>
+          <p class="footer-text">chanatip.chooc@kmutt.ac.th</p>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="footer-col">
+          <p class="footer-subtitle">เกี่ยวกับ</p>
+          <a href="#">เกี่ยวกับเรา</a>
+          <a href="#">ข้อตกลงและเงื่อนไข</a>
+          <a href="#">นโยบายความเป็นส่วนตัว</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="footer-col">
+          <p class="footer-subtitle">คำสั่งซื้อ</p>
+          <a href="#">ติดตามคำสั่งซื้อของฉัน</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="footer-col">
+          <p class="footer-subtitle">ต้องการความช่วยเหลือ</p>
+          <a href="#">คำถามที่พบบ่อย</a>
+          <a href="#">การคืนสินค้า</a>
+          <a href="#">ติดต่อเรา</a>
+          <a href="#">ตารางแนะนำขนาด</a>
+        </div>
+      </div>
+
+      <hr class="footer-line" />
+
+      <div class="footer-bottom">© ACS SHOP, all rights reserved</div>
+    </footer>
     <script src="./scripts/productupdate.js"></script>
+    <script src="./scripts/menu.js" defer></script>
 </body>
 
 </html>

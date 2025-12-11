@@ -149,48 +149,69 @@ a {
     padding-bottom: 20px;
 }
 
-@media (max-width: 400px){
-
-    .products {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .toppage img {
-        width: 100%;
-        height: auto;
-        border-radius: 0px;
-        margin-top: 0px;
+@media (max-width: 768px) {
+    .content {
+        max-width: 95%; 
     }
 
     .toppage {
         margin-top: 0px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+    }
+    .toppage img {
+        width: 100%; 
+        border-radius: 0;
     }
 
     .shop-product {
-        font-size: 28px;
-    }
-
-    /* ลดขนาดเมนูสินค้า */
-    ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-
-    #ar, #ad {
-        margin-left: 40px;
+        font-size: 32px; 
+        line-height: 38px;
     }
 
     .product {
         width: 100%;
-        text-align: left;
     }
 
-    .droprange {
-        margin-left: 0;
-        padding: 10px;
-        width: 55px;
+    .products {
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 20px;
+    }
+
+    .item-title {
+        font-size: 15px;
+    }
+
+    .item-description {
+        font-size: 10px;
     }
 }
+
+
+@media (max-width: 480px) {
+    .toppage {
+        margin-bottom: 30px;
+    }
+
+    .shop-product {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+
+    .products {
+        grid-template-columns: 1fr 1fr; 
+        gap: 30px;
+    }
+    
+    .item-title {
+        font-size: 18px;
+    }
+    
+    .item-description {
+        font-size: 16px;
+    }
+    
+}
+
+
 

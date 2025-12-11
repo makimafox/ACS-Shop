@@ -48,7 +48,7 @@ function toggleSubmenu() {
 
 function signout() {
   localStorage.removeItem("token");
-  window.location.href = "./index.html";
+  window.location.href = "./landing.html";
 }
 
 function signin() {
