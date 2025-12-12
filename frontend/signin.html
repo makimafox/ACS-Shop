@@ -132,7 +132,7 @@
 
         <div class="sidenav-group">
           <div class="sidenav-item">
-            <a href="#">Shop</a>
+            <a href="./shop.html">Shop</a>
             <button
               id="submenu-shop-button"
               class="btn btn--ghost"
@@ -155,26 +155,36 @@
               </svg>
             </button>
           </div>
-          <div id="submenu-shop" class="sidenav-submenu">
-          </div>
+          <div id="submenu-shop" class="sidenav-submenu"></div>
         </div>
 
-        <a href="#">Cart</a>
-        <a href="#" id="admin-link">Admin</a>
-
+        <a href="./cart.html">Cart</a>
+        <a href="./admin-order.html" id="admin-link">Admin</a>
 
         <div class="sidenav-group sidenav-menu-extra">
-          <a href="#" id="account-settings-link">Account Settings</a>
-          <a href="#" id="order-history-link">Order History</a>
-          <button
+          <a href="./account-settings.html" id="account-settings-link">Account Settings</a>
+          <a href="./order-history.html" id="order-history-link">Order History</a>
+          <a
             id="signout-link-btn"
-            class="btn btn--ghost btn--left"
-            style="font-size: 14px"
+            style="
+              color: black;
+              text-decoration: none;
+              cursor: pointer;
+            "
           >
             Signout
-          </button>
+          </a>
+          <a
+            id="signin-link-btn"
+            style="
+              color: black;
+              text-decoration: none;
+              cursor: pointer;
+            "
+          >
+            Signin
+          </a>
         </div>
-
       </div>
     </div>
 
@@ -236,8 +246,7 @@
               >
                 <path
                   d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                /></svg
-            ></a>
+                /></svg></a>
             <a href="https://www.instagram.com/dek_warmkid/" target="_blank"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -253,8 +262,7 @@
               >
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg
-            ></a>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg></a>
           </div>
 
           <p class="footer-subtitle">ติดต่อเรา</p>
@@ -290,7 +298,7 @@
       <div class="footer-bottom">© ACS SHOP, all rights reserved</div>
     </footer>
 
-    <script src="./scripts/menu.js"></script>
-    <script src="./scripts/signin.js"></script>
+    <script src="./scripts/menu.js" defer></script>
+    <script src="./scripts/signin.js" defer></script>
   </body>
 </html>
