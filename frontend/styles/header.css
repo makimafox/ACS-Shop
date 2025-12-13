@@ -61,6 +61,7 @@
   transition: visibility 0.5s ease, opacity 0.5s ease,
     background-color 0.4s ease;
   pointer-events: none;
+  max-width: 100%;
 }
 
 .sidenav-overlay.open {
@@ -78,15 +79,17 @@
   left: 0;
   z-index: 6;
   background-color: white;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Ensure no horizontal overflow */
   padding-top: 60px;
   padding-left: 16px;
   padding-right: 16px;
   transition: width 0.4s ease;
+  word-wrap: break-word; /* Break long words */
 }
 
 .sidenav.open {
-  width: 250px; /* matches the JS value used previously */
+  width: 250px; /* Ensure consistent width */
+  max-width: 100%; /* Prevent exceeding viewport width */
 }
 
 .sidenav a {
@@ -110,6 +113,7 @@
   max-height: 400px; /* large enough to show items */
   padding-top: 8px;
   padding-bottom: 8px;
+  overflow-y: auto;
 }
 
 .sidenav a:hover {
@@ -152,56 +156,41 @@
 }
 
 
-.sidenav-menu-extra {
+/* .sidenav-menu-extra {
   display: none;
-}
+} */
 
-@media screen and (max-width: 768px) {
+/* Responsive */
+@media (max-width: 768px) {
   .header {
-    height: 55px;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
-
+  
   .header-nav {
-    padding: 0 12px;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
-
-  /* ปุ่ม 3 ขีดชิดซ้าย */
-  .header-nav button.btn {
-    padding: 8px !important;
-  }
-
-  /* โลโก้ให้อยู่กลางแบบสมจริง */
+  
   .header-title {
-    font-size: 18px;
-    justify-self: center;
-    text-align: center;
-    margin-left: 8px;
+    font-size: 24px;
+  }
+  
+  .sidenav.open {
+    width: 250px;
+    max-width: 280px;
+  }
+  
+  .sidenav {
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
-  /* ปุ่มด้านขวา */
-  .header-nav-right {
-    gap: 4px;
-  }
-
-  .header-nav-right .btn {
-    padding: 8px !important;
-  }
-
-  /* Dropdown account ปิดบนมือถือ */
   #account-btn {
     display: none;
   }
-
-  /* Drawer menu */
-  .sidenav.open {
-    width: 75%;
-  }
-
-  .sidenav-overlay {
-    top: 55px;
-  }
-  
 }
 
 @media (max-width: 480px) {
@@ -245,5 +234,18 @@
   /* Drawer menu */
   .sidenav.open {
     width: 75%;
+    max-width: 280px; /* Prevent sidenav from being too wide */
+  }
+  
+  .sidenav {
+     /* Prevent horizontal overflow */
+    box-sizing: border-box;
+  }
+  
+  /* Ensure header doesn't overflow */
+  .header {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 }

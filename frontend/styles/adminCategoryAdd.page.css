@@ -138,8 +138,31 @@ button[type="submit"]:hover {
     width: 75%;
     max-width: none;
   }
-    /* Make submit button span full width on small screens */
-    button[type="submit"] {
-        width: 100%;
-    }
+  button[type="submit"] {
+    width: 100%; /* Make submit button span full width on tablet */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+    width: 90%; /* Adjust container width for mobile */
+  }
+  h2 {
+    font-size: 1.5rem; /* Reduce heading size for mobile */
+  }
+  .form-group label {
+    font-size: 0.9rem; /* Adjust label size for mobile */
+  }
+  .form-group input {
+    padding: 0.5rem; /* Adjust input padding for mobile */
+    font-size: 0.9rem; /* Adjust input font size for mobile */
+  }
+  button[type="submit"] {
+    width: 100%; /* Ensure submit button spans full width on mobile */
+    padding: 0.7rem; /* Adjust padding for mobile */
+  }
+  .signup-link {
+    font-size: 0.8rem; /* Adjust link font size for mobile */
+  }
 }

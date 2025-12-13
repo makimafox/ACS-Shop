@@ -4,10 +4,6 @@
   padding: 50px 80px 30px;
   font-family: sans-serif;
   max-width: 100%;
-}
-
-/* Ensure long words/URLs inside the footer wrap instead of overflowing */
-.footer, .footer * {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -91,10 +87,11 @@
 @media (max-width: 768px) {
   .footer-inner {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /* Adjust gap for smaller screens */
+    gap: 1rem;
+    /* text-align: center; Center align content for better readability */
   }
   .footer-title {
-    font-size: 22px; /* Slightly smaller titles */
+    font-size: 1.25rem; /* Slightly smaller titles */
   }
   .footer-text {
     font-size: 13px; /* Adjust text size */
@@ -102,19 +99,26 @@
 }
 
 @media (max-width: 480px) {
+  
+  .footer h2 {
+    text-align: center !important;
+  }
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 15px; /* Further reduce gap for mobile */
+    gap: 0.75rem; /* Further reduce gap for mobile */
+    text-align: center; /* Ensure content is centered */
   }
   .footer-title {
-    font-size: 20px; /* Smaller titles for mobile */
+    font-size: 1rem; /* Smaller titles for mobile */
   }
   .footer-text {
     font-size: 12px; /* Smaller text for mobile */
   }
   .socials {
-    flex-direction: column; /* Stack social icons vertically */
-    align-items: center; /* Center align icons */
+    justify-content: center;
+    gap: 10px; /* Add spacing between icons */
   }
 }
+
+
 

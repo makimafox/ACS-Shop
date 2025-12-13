@@ -151,66 +151,103 @@ a {
 
 @media (max-width: 768px) {
     .content {
-        max-width: 95%; 
+        max-width: 95%;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     .toppage {
-        margin-top: 0px;
+        margin-top: 0;
         margin-bottom: 40px;
+        width: 100%;
+        box-sizing: border-box;
     }
+    
     .toppage img {
-        width: 100%; 
+        width: 100%;
+        max-width: 100%;
+        height: auto;
         border-radius: 0;
     }
 
     .shop-product {
-        font-size: 32px; 
+        font-size: 32px;
         line-height: 38px;
     }
 
     .product {
         width: 100%;
+        box-sizing: border-box;
     }
 
     .products {
-        grid-template-columns: repeat(4, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
 
     .item-title {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .item-description {
-        font-size: 10px;
+        font-size: 14px;
     }
 }
 
 
 @media (max-width: 480px) {
+    .content {
+        max-width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
     .toppage {
         margin-bottom: 30px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .toppage img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 
     .shop-product {
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 22px;
+        line-height: 26px;
     }
 
+    .product {
+        width: 100%;
+        box-sizing: border-box;
+    }
 
     .products {
-        grid-template-columns: 1fr 1fr; 
-        gap: 30px;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    
+    .item {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .item img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
     
     .item-title {
-        font-size: 18px;
+        font-size: 15px;
     }
     
     .item-description {
-        font-size: 16px;
+        font-size: 13px;
     }
-    
 }
 
 

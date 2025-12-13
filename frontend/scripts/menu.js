@@ -104,7 +104,7 @@ if (token) {
 }
 
 const categorysubmenu = document.getElementById("submenu-shop");
-fetch("http://localhost:8000/category?limit=5")
+fetch("http://localhost:8000/category")
   .then((response) => response.json())
   .then((data) => {
     data.forEach((category) => {

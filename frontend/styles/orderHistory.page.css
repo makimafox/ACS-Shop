@@ -162,7 +162,9 @@
   background: #000;
 }
 
-@media (max-width: 768px) {
+/* No additional media queries needed - existing ones are sufficient */
+
+@media (max-width: 1200px) {
 
   .main {
     padding: 20px;
@@ -268,7 +270,7 @@
   }
 
   .order-card {
-    width: 84%;
+    width: 100%;
     padding: 18px 18px;
   }
 

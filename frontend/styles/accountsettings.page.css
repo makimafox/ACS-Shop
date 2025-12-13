@@ -237,6 +237,8 @@
     margin-top: 12px;
     padding-left: 10px;
     padding-right: 10px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .main {
@@ -307,13 +309,26 @@
     margin-top: 12px;
     padding-left: 10px;
     padding-right: 10px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .main {
     margin-top: 0;
     margin-bottom: 20px;
     box-sizing: border-box;
-    padding-left: 30px;
-    padding-top: 50px;
+    padding: 1rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .sidebar {
+    position: static;
+    top: auto;
+  }
+  
+  .title {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

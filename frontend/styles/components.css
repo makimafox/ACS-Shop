@@ -140,3 +140,20 @@ select option { padding: 0.25rem 0.5rem; font-size: 20px;}
 .linkback:hover {
   color: #6b7280;
 }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .input, .select {
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .input, .select {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+    }
+}
