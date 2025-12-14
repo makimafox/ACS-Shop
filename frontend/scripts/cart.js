@@ -2,6 +2,54 @@ document.addEventListener("DOMContentLoaded", () => {
   loadCartItems();
 });
 
+async function checkForRepeatOrders(cart) {
+  const token = localStorage.getItem("token");
+  if (!token) return; // User not logged in, skip check
+
+  try {
+    // Decode token to get user ID
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const userId = payload.id;
+
+    // Fetch user's order history
+    const response = await fetch(`http://localhost:8000/order?user_id=${userId}`);
+
+    if (!response.ok) return;
+
+    const orders = await response.json();
+    
+    // Extract all product IDs from previous orders
+    const previouslyOrderedProductIds = new Set();
+    orders.forEach(order => {
+      if (order.items && Array.isArray(order.items)) {
+        order.items.forEach(item => {
+          previouslyOrderedProductIds.add(item.product_id);
+        });
+      }
+    });
+
+    // Check if any cart items have been ordered before
+    const repeatProducts = cart.filter(cartItem => 
+      previouslyOrderedProductIds.has(cartItem.id)
+    );
+
+    if (repeatProducts.length > 0) {
+      const productNames = repeatProducts.map(p => p.id).join(', ');
+      const message = `You have already ordered product(s) with ID: ${productNames} in the past. Do you want to continue?`;
+      
+      if (!confirm(message)) {
+        // User chose not to continue
+        console.log("User cancelled due to repeat orders");
+        return false;
+      }
+    }
+    return true;
+  } catch (error) {
+    console.error("Error checking repeat orders:", error);
+    return true; // Continue on error
+  }
+}
+
 async function loadCartItems() {
   const container = document.getElementById("items");
   const totalEl = document.getElementById("total-price");
@@ -185,7 +233,7 @@ async function loadCartItems() {
 }
 
 
-function checkout() {
+async function checkout() {
   if (JSON.parse(localStorage.getItem("cart")).length === 0) {
     alert("Your cart is empty!");
     return;
@@ -195,7 +243,13 @@ function checkout() {
     alert("Please sign in to proceed to checkout.");
     window.location.href = "./signin.html";
     return;
-  }else {
+  }
+  
+  // Check for repeat orders before proceeding
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const shouldContinue = await checkForRepeatOrders(cart);
+  
+  if (shouldContinue !== false) {
     window.location.href = "./checkout.html";
   }
 }
