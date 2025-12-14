@@ -51,11 +51,14 @@ orderRoute.get("/", async (c) => {
 
     const res = await pool.query(sql, params);
     
-    // Fetch order items for each order
+    // Fetch order items with product info for each order
     const ordersWithItems = await Promise.all(
       res.rows.map(async (order) => {
         const itemsRes = await pool.query(
-          "SELECT * FROM order_items WHERE order_id = $1",
+          `SELECT oi.*, p.name, p.description, p.price, p.image_url
+           FROM order_items oi
+           LEFT JOIN products p ON oi.product_id = p.product_id
+           WHERE oi.order_id = $1`,
           [order.order_id]
         );
         return { ...order, items: itemsRes.rows };

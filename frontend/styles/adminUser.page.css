@@ -74,7 +74,7 @@
 
 .item {
   display: grid;
-  grid-template-columns: min-content 1fr 1fr;
+  grid-template-columns: 1fr min-content 1fr;
   column-gap: 24px;
   grid-template-rows: auto auto;
   row-gap: 16px;

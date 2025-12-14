@@ -49,7 +49,7 @@ async function loadUsers() {
     <path d="m6 6 12 12"/>
   </svg>
     `;
-    item.appendChild(icon1);
+    // item.appendChild(icon1);
 
     title.textContent = `${user.name}`;
     item.appendChild(title);

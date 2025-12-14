@@ -87,7 +87,7 @@ async function fetchOrders() {
     if (order.items && order.items.length > 0) {
       order.items.forEach((item) => {
         const itemEl = document.createElement("p");
-        itemEl.textContent = `Product ID: ${item.product_id} x ${item.quantity}`;
+        itemEl.textContent = `${item.name} x ${item.quantity}`;
         itemsDiv.appendChild(itemEl);
       });
     } else {

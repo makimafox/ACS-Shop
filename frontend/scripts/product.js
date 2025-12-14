@@ -52,8 +52,10 @@ async function product() {
     } else {
       const categoriesBody = await categoriesRes.json();
       const category = categoriesBody;
-      document.getElementById("product_category").textContent =
-        category.name;
+      const product_category_link = document.getElementById("product_category")
+      product_category_link.textContent = category.name
+      product_category_link.href = `./shop.html?category=${category.category_id}`
+
     }
   } catch (err) {
     console.error("Network error fetching categories:", err);
