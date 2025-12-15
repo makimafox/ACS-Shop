@@ -128,8 +128,6 @@ async function signUp(e) {
             const errBody = await res.json().catch(() => ({}));
             console.log('Server returned non-OK response', res.status, errBody);
 
-            // If server returned field-specific errors, map them to the form
-            // Expecting either { errors: { fieldName: 'message' } } or { error: 'message' }
             if (errBody && typeof errBody === 'object') {
                 if (errBody.errors && typeof errBody.errors === 'object') {
                     console.log('Server field errors:', errBody.errors);

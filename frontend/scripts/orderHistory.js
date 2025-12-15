@@ -245,7 +245,7 @@ async function fetchOrdersCompleted() {
     // rowTop.appendChild(orderRight);
     card.appendChild(rowTop);
 
-    // ========== ITEMS ==========
+    
     const titleItems = document.createElement("h4");
     titleItems.textContent = "Items";
 

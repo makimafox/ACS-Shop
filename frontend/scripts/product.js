@@ -28,9 +28,7 @@ async function product() {
     return;
   }
 
-  // -----------------------------
-  // Update product info in DOM
-  // -----------------------------
+
   document.getElementById("product_title").textContent = product.name;
   document.getElementById("breadcrumb-product").textContent = product.name;
   document.getElementById("product_price").innerHTML = `THB <span>${product.price}</span>`;
@@ -39,9 +37,7 @@ async function product() {
   document.getElementById("product_image").src =
     `http://localhost:8000/products/images/${product.image_url}`;
 
-  // -----------------------------
-  // Fetch Category
-  // -----------------------------
+ 
   try {
     const categoriesRes = await fetch(
       `http://localhost:8000/category/${product.category_id}`

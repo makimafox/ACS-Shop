@@ -74,7 +74,7 @@ async function handleCategoryAdd(e) {
         return;
       }
 
-      // If API returns single-field errors like { name: "..." } or { description: "..." }
+
       Object.keys(categoryBody).forEach((key) => {
         const fieldObj = getField(key);
         if (fieldObj && fieldObj.errorEl) {

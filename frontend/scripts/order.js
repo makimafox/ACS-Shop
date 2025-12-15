@@ -76,14 +76,14 @@ async function fetchOrders() {
     rowTop.appendChild(orderRight);
     card.appendChild(rowTop);
 
-    // ========== ITEMS ==========
+   
     const titleItems = document.createElement("h4");
     titleItems.textContent = "Items";
 
     const itemsDiv = document.createElement("div");
     itemsDiv.className = "items";
 
-    // Render order items from the nested items array
+    
     if (order.items && order.items.length > 0) {
       order.items.forEach((item) => {
         const itemEl = document.createElement("p");
@@ -99,7 +99,7 @@ async function fetchOrders() {
     card.appendChild(titleItems);
     card.appendChild(itemsDiv);
 
-    // ========== TOTAL + BUTTON ==========
+   
     const rowBottom = document.createElement("div");
     rowBottom.className = "row";
 

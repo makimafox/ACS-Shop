@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	const totalEl = document.getElementById('total-price');
 	if (totalEl) totalEl.textContent = localStorage.getItem('total-price') || '0';
 
-	// find a checkout button (id or class)
+
 	const checkoutBtn = document.getElementById('checkout-btn') || document.querySelector('.checkout-btn');
 	const checkoutForm = document.getElementById('checkout-form') || null;
 
-	if (!checkoutBtn) return; // no checkout button on this page
+	if (!checkoutBtn) return; 
 
 	checkoutBtn.addEventListener('click', async (e) => {
 		e.preventDefault();
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		checkoutBtn.textContent = 'Processing...';
 
 		try {
-			// gather cart from localStorage
+			
 			let cart = [];
 			try { cart = JSON.parse(localStorage.getItem('cart') || '[]'); } catch (err) { cart = []; }
 
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
 				return;
 			}
 
-			// total price
+			
 			const total = (totalEl && totalEl.textContent) ? totalEl.textContent : (localStorage.getItem('total-price') || 0);
 
-			// gather customer details from a form if present, or from inputs by name
+			
 			const customer = {};
 			if (checkoutForm) {
 				const fd = new FormData(checkoutForm);
@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			localStorage.removeItem('total-price');
 
 			alert('Order placed successfully');
-			// optionally reload to update UI
 			// window.location.reload();
 
 		} catch (err) {

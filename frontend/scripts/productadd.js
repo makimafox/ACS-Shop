@@ -21,7 +21,7 @@ async function handleProductAdd(e) {
   const price = getField("price");
   const category_id = getField("category-option");
   const stock_quantity = getField("stock_quantity");
-  const file = getField("file"); // ฟิลด์รูปภาพชื่อ file
+  const file = getField("file");
 
   const fields = [name, description, price, category_id, stock_quantity, file];
   fields.forEach((f) => {
@@ -48,13 +48,13 @@ async function handleProductAdd(e) {
   formData.append("stock_quantity", values.stock_quantity);
 
   if (values.file) {
-    formData.append("file", values.file); // ต้องเป็น file ตามสเปก API
+    formData.append("file", values.file); 
   }
 
   try {
     const productRes = await fetch("http://localhost:8000/products", {
       method: "POST",
-      body: formData, // อย่าลืม! ห้ามใส่ headers multipart/form-data เอง
+      body: formData, 
     });
 
     console.log('Request sent, awaiting response...');
@@ -67,9 +67,8 @@ async function handleProductAdd(e) {
       return;
     }
 
-    // 📌 Validation errors จาก Backend
+    
     if (productBody && typeof productBody === "object") {
-      // กรณี errors เป็น object เช่น { name: "...", price: "..." }
       if (productBody.errors && typeof productBody.errors === "object") {
         Object.entries(productBody.errors).forEach(([field, msg]) => {
           const fieldObj = getField(field);
@@ -82,7 +81,6 @@ async function handleProductAdd(e) {
         return;
       }
 
-      // single field error เช่น { price: "Price invalid" }
       Object.keys(productBody).forEach((key) => {
         const fieldObj = getField(key);
         if (fieldObj?.errorEl) {

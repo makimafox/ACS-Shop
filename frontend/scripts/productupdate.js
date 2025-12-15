@@ -21,7 +21,7 @@ async function handleProductUpdate(e) {
   const price = getField("price");
   const category_id = getField("category-option");
   const stock_quantity = getField("stock_quantity");
-  const file = getField("file"); // ฟิลด์รูปภาพชื่อ file
+  const file = getField("file"); 
 
   const fields = [name, description, price, category_id, stock_quantity, file];
   fields.forEach((f) => {
@@ -39,7 +39,6 @@ async function handleProductUpdate(e) {
 
   console.log("Form values:", values);
 
-  // ใช้ FormData ตาม spec
   const formData = new FormData();
   formData.append("name", values.name);
   formData.append("description", values.description);
@@ -48,7 +47,7 @@ async function handleProductUpdate(e) {
   formData.append("stock_quantity", values.stock_quantity);
 
   if (values.file) {
-    formData.append("file", values.file); // ต้องเป็น file ตามสเปก API
+    formData.append("file", values.file); 
   }
 
   const urlParams = new URLSearchParams(window.location.search);
@@ -62,7 +61,7 @@ async function handleProductUpdate(e) {
   try {
     const productRes = await fetch(`http://localhost:8000/products/update`, {
       method: "POST",
-      body: formData, // อย่าลืม! ห้ามใส่ headers multipart/form-data เอง
+      body: formData, 
     });
 
     console.log("Request sent, awaiting response...");
@@ -161,7 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const option = document.createElement("option");
         option.value = category.category_id;
         option.textContent = category.name;
-        // ถ้าค่าใน category_id ตรงกับ query → เอาไว้บนสุด
       if (String(category.category_id) === productId) {
         categorySelect.prepend(option); 
       } else {

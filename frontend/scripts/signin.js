@@ -91,12 +91,12 @@ async function signIn(e) {
     if (body && body.token) {
       console.log('Signin successful', body);
       localStorage.setItem('token', body.token);
-      // redirect to home/dashboard
+
       window.location.href = './landing.html';
       return;
     }
 
-    // No token returned
+
     console.log('Signin succeeded but no token returned', body);
     alert('Signin successful (no token returned)');
 
@@ -108,7 +108,7 @@ async function signIn(e) {
   }
 }
 
-// Attach handler on DOMContentLoaded
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('signin-form');
   if (form) {

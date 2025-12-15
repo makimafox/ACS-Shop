@@ -132,9 +132,3 @@ function AccountDropdown() {
 
 
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const dropdown = document.getElementById("account-dropdown");
-// if (!dropdown) return;
-// dropdown.style.height = "0px";
-// dropdown.style.visibility = "hidden";
-// });

@@ -50,9 +50,8 @@ async function handleCategoryAdd(e) {
       return;
     }
 
-    // Handle validation errors returned from API
     if (categoryBody && typeof categoryBody === "object") {
-      // If errors is an object mapping field names to messages
+
       if (categoryBody.errors && typeof categoryBody.errors === "object") {
         Object.entries(categoryBody.errors).forEach(([field, msg]) => {
           const fieldObj = getField(field);
@@ -65,7 +64,7 @@ async function handleCategoryAdd(e) {
         return;
       }
 
-      // If API returns single-field errors like { name: "..." } or { description: "..." }
+
       Object.keys(categoryBody).forEach((key) => {
         const fieldObj = getField(key);
         if (fieldObj && fieldObj.errorEl) {
