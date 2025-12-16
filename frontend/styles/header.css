@@ -156,9 +156,9 @@
 }
 
 
-/* .sidenav-menu-extra {
+.sidenav-menu-extra {
   display: none;
-} */
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -190,6 +190,10 @@
 
   #account-btn {
     display: none;
+  }
+
+  .sidenav-menu-extra {
+    display: block;
   }
 }
 

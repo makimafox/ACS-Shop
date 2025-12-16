@@ -1,5 +1,7 @@
+localStorage.getItem('token')
+payload = JSON.parse(atob(token.split(".")[1]));
 
-if (!localStorage.getItem('token')) {
-    console.log('No token found, redirecting to signin');
-    window.location.href = './signin.html';
+console.log(payload)
+if (payload.role == "user") {
+    window.location.href = './landing.html';
 }
