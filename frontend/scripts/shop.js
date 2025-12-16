@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 const description = document.createElement("span");
                 description.className = "item-description";
-                description.textContent = product.description || "No description available";
+                description.textContent = `${product.price} THB` || "No description available";
 
                 itemLink.appendChild(img);
                 itemLink.appendChild(title);
